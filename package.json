@@ -1,0 +1,24 @@
+{
+  "name": "copy-kat",
+  "version": "0.1.0",
+  "description": "Manage local projects efficiently through the power of Electron.",
+  "devDependencies": {
+    "electron": "^1.4.14",
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "electron": "electron ."
+  },
+  "repository": "https://github.com/hgulino/copy-kat.git",
+  "author": "Hunter Gulino <huntergulino@gmail.com>",
+  "license": "MIT"
+}
