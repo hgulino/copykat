@@ -135,6 +135,18 @@ eval("module.exports = @material-ui/icons;\n\n//# sourceURL=webpack://renderer/e
 
 /***/ }),
 
+/***/ "classnames":
+/*!*****************************!*\
+  !*** external "classnames" ***!
+  \*****************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = classnames;\n\n//# sourceURL=webpack://renderer/external_%22classnames%22?");
+
+/***/ }),
+
 /***/ "connected-react-router":
 /*!*****************************************!*\
   !*** external "connected-react-router" ***!
@@ -204,6 +216,18 @@ eval("module.exports = electron-log;\n\n//# sourceURL=webpack://renderer/externa
 /***/ (function(module, exports) {
 
 eval("module.exports = electron-updater;\n\n//# sourceURL=webpack://renderer/external_%22electron-updater%22?");
+
+/***/ }),
+
+/***/ "fs-jetpack":
+/*!*****************************!*\
+  !*** external "fs-jetpack" ***!
+  \*****************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = fs-jetpack;\n\n//# sourceURL=webpack://renderer/external_%22fs-jetpack%22?");
 
 /***/ }),
 
