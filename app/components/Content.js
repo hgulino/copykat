@@ -10,6 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import IconButton from '@material-ui/core/IconButton';
+import Calendar from './Calendar'
 const remote = require('electron').remote;
 // import jetpack from 'fs-jetpack';
 const jetpack = require('fs-jetpack');
@@ -56,7 +57,10 @@ const styles = theme => ({
   chipWarning: {
     backgroundColor: theme.palette.error.main,
     color: theme.palette.text.primary
-  }
+  },
+  // calendar: {
+  //   height: '500px'
+  // },
 });
 
 class Content extends Component {
@@ -68,6 +72,7 @@ class Content extends Component {
     const { classes } = this.props;
     return (
       <Grid container justify="center" spacing={24}>
+
         <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
@@ -115,7 +120,338 @@ class Content extends Component {
               <MoreVertIcon />
             </IconButton>
           </Paper>
+        </Grid> <Grid item>
+          <Paper className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+                </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
+        </Grid> <Grid item>
+          <Paper className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+              </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
+        </Grid> <Grid item>
+          <Paper className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+            </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
+        </Grid> <Grid item>
+          <Paper className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+          </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
+        </Grid> <Grid item>
+          <Paper className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+        </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
+        </Grid> <Grid item>
+          <Paper className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+        </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
+        </Grid> <Grid item>
+          <Paper className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
+
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+        </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
         </Grid>
+
+
       </Grid>
     );
   }

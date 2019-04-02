@@ -243,6 +243,18 @@ eval("module.exports = history;\n\n//# sourceURL=webpack://renderer/external_%22
 
 /***/ }),
 
+/***/ "moment":
+/*!*************************!*\
+  !*** external "moment" ***!
+  \*************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = moment;\n\n//# sourceURL=webpack://renderer/external_%22moment%22?");
+
+/***/ }),
+
 /***/ "react":
 /*!************************!*\
   !*** external "react" ***!
@@ -252,6 +264,18 @@ eval("module.exports = history;\n\n//# sourceURL=webpack://renderer/external_%22
 /***/ (function(module, exports) {
 
 eval("module.exports = react;\n\n//# sourceURL=webpack://renderer/external_%22react%22?");
+
+/***/ }),
+
+/***/ "react-big-calendar":
+/*!*************************************!*\
+  !*** external "react-big-calendar" ***!
+  \*************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = react-big-calendar;\n\n//# sourceURL=webpack://renderer/external_%22react-big-calendar%22?");
 
 /***/ }),
 
@@ -276,6 +300,18 @@ eval("module.exports = react-dom;\n\n//# sourceURL=webpack://renderer/external_%
 /***/ (function(module, exports) {
 
 eval("module.exports = react-hot-loader;\n\n//# sourceURL=webpack://renderer/external_%22react-hot-loader%22?");
+
+/***/ }),
+
+/***/ "react-perfect-scrollbar":
+/*!******************************************!*\
+  !*** external "react-perfect-scrollbar" ***!
+  \******************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+eval("module.exports = react-perfect-scrollbar;\n\n//# sourceURL=webpack://renderer/external_%22react-perfect-scrollbar%22?");
 
 /***/ }),
 
