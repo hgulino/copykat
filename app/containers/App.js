@@ -45,7 +45,7 @@ class App extends Component {
 }
 
 App.propTypes = {
-  classes: PropTypes.objectOf.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(App);

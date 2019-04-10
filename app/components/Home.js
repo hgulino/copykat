@@ -21,7 +21,7 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  classes: PropTypes.objectOf.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles, { withTheme: true })(Home);

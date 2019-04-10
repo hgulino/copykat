@@ -10,7 +10,7 @@ import Divider from '@material-ui/core/Divider';
 import Chip from '@material-ui/core/Chip';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import IconButton from '@material-ui/core/IconButton';
-import Calendar from './Calendar'
+import Calendar from './Calendar';
 const remote = require('electron').remote;
 // import jetpack from 'fs-jetpack';
 const jetpack = require('fs-jetpack');
@@ -57,22 +57,88 @@ const styles = theme => ({
   chipWarning: {
     backgroundColor: theme.palette.error.main,
     color: theme.palette.text.primary
-  },
+  }
   // calendar: {
   //   height: '500px'
   // },
 });
 
 class Content extends Component {
+  componentDidMount() {
+    // window.addEventListener('mouseup', this._onDragLeave);
+    // window.addEventListener('dragenter', this._onDragEnter);
+    window.addEventListener('dragover', this._onDragOver);
+    window.addEventListener('drop', this._onDrop);
+  }
+  _onDrop(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    for (let f of e.dataTransfer.files) {
+      console.log('File(s) you dragged here: ', f.path);
+    }
+  }
+  _onDragOver(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
   render() {
     console.log(
       jetpack.read(app.getPath('documents') + '/CopyKat/metadata.json', 'json')
     );
     console.log(app.getName());
+
     const { classes } = this.props;
     return (
       <Grid container justify="center" spacing={24}>
+        <Grid item>
+          <Paper id="dragbox" className={classes.paper}>
+            <ButtonBase
+              focusRipple
+              style={{
+                display: 'inherit',
+                cursor: 'auto',
+                textAlign: 'inherit'
+              }}
+            >
+              <Divider className={classes.divider} />
+              <Grid
+                container
+                className={classes.container}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Avatar className={classes.avatar}>CK</Avatar>
+                </Grid>
+              </Grid>
 
+              <Grid
+                container
+                className={classes.containerInfo}
+                justify="space-between"
+                alignItems="flex-start"
+              >
+                <Grid item>
+                  <Typography variant="subtitle1">Client Name</Typography>
+                  <Typography variant="h6">Copy Kat</Typography>
+                </Grid>
+                <Grid item>
+                  <Chip label="Due soon!" className={classes.chipWarning} />
+                </Grid>
+                <Grid item xs={12}>
+                  <Typography variant="body1">
+                    Manage local projects efficiently through the power of
+                    Electron.
+                  </Typography>
+                </Grid>
+              </Grid>
+            </ButtonBase>
+            <IconButton className={classes.moreVertIcon}>
+              <MoreVertIcon />
+            </IconButton>
+          </Paper>
+        </Grid>{' '}
         <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
@@ -120,7 +186,8 @@ class Content extends Component {
               <MoreVertIcon />
             </IconButton>
           </Paper>
-        </Grid> <Grid item>
+        </Grid>{' '}
+        <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
               focusRipple
@@ -159,7 +226,7 @@ class Content extends Component {
                   <Typography variant="body1">
                     Manage local projects efficiently through the power of
                     Electron.
-                </Typography>
+                  </Typography>
                 </Grid>
               </Grid>
             </ButtonBase>
@@ -167,7 +234,8 @@ class Content extends Component {
               <MoreVertIcon />
             </IconButton>
           </Paper>
-        </Grid> <Grid item>
+        </Grid>{' '}
+        <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
               focusRipple
@@ -206,7 +274,7 @@ class Content extends Component {
                   <Typography variant="body1">
                     Manage local projects efficiently through the power of
                     Electron.
-              </Typography>
+                  </Typography>
                 </Grid>
               </Grid>
             </ButtonBase>
@@ -214,7 +282,8 @@ class Content extends Component {
               <MoreVertIcon />
             </IconButton>
           </Paper>
-        </Grid> <Grid item>
+        </Grid>{' '}
+        <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
               focusRipple
@@ -253,7 +322,7 @@ class Content extends Component {
                   <Typography variant="body1">
                     Manage local projects efficiently through the power of
                     Electron.
-            </Typography>
+                  </Typography>
                 </Grid>
               </Grid>
             </ButtonBase>
@@ -261,7 +330,8 @@ class Content extends Component {
               <MoreVertIcon />
             </IconButton>
           </Paper>
-        </Grid> <Grid item>
+        </Grid>{' '}
+        <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
               focusRipple
@@ -300,7 +370,7 @@ class Content extends Component {
                   <Typography variant="body1">
                     Manage local projects efficiently through the power of
                     Electron.
-          </Typography>
+                  </Typography>
                 </Grid>
               </Grid>
             </ButtonBase>
@@ -308,7 +378,8 @@ class Content extends Component {
               <MoreVertIcon />
             </IconButton>
           </Paper>
-        </Grid> <Grid item>
+        </Grid>{' '}
+        <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
               focusRipple
@@ -347,7 +418,7 @@ class Content extends Component {
                   <Typography variant="body1">
                     Manage local projects efficiently through the power of
                     Electron.
-        </Typography>
+                  </Typography>
                 </Grid>
               </Grid>
             </ButtonBase>
@@ -355,7 +426,8 @@ class Content extends Component {
               <MoreVertIcon />
             </IconButton>
           </Paper>
-        </Grid> <Grid item>
+        </Grid>{' '}
+        <Grid item>
           <Paper className={classes.paper}>
             <ButtonBase
               focusRipple
@@ -394,54 +466,7 @@ class Content extends Component {
                   <Typography variant="body1">
                     Manage local projects efficiently through the power of
                     Electron.
-        </Typography>
-                </Grid>
-              </Grid>
-            </ButtonBase>
-            <IconButton className={classes.moreVertIcon}>
-              <MoreVertIcon />
-            </IconButton>
-          </Paper>
-        </Grid> <Grid item>
-          <Paper className={classes.paper}>
-            <ButtonBase
-              focusRipple
-              style={{
-                display: 'inherit',
-                cursor: 'auto',
-                textAlign: 'inherit'
-              }}
-            >
-              <Divider className={classes.divider} />
-              <Grid
-                container
-                className={classes.container}
-                justify="space-between"
-                alignItems="flex-start"
-              >
-                <Grid item>
-                  <Avatar className={classes.avatar}>CK</Avatar>
-                </Grid>
-              </Grid>
-
-              <Grid
-                container
-                className={classes.containerInfo}
-                justify="space-between"
-                alignItems="flex-start"
-              >
-                <Grid item>
-                  <Typography variant="subtitle1">Client Name</Typography>
-                  <Typography variant="h6">Copy Kat</Typography>
-                </Grid>
-                <Grid item>
-                  <Chip label="Due soon!" className={classes.chipWarning} />
-                </Grid>
-                <Grid item xs={12}>
-                  <Typography variant="body1">
-                    Manage local projects efficiently through the power of
-                    Electron.
-        </Typography>
+                  </Typography>
                 </Grid>
               </Grid>
             </ButtonBase>
@@ -450,15 +475,13 @@ class Content extends Component {
             </IconButton>
           </Paper>
         </Grid>
-
-
       </Grid>
     );
   }
 }
 
 Content.propTypes = {
-  classes: PropTypes.objectOf.isRequired
+  classes: PropTypes.object.isRequired
 };
 
 export default withStyles(styles)(Content);

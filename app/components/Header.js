@@ -111,10 +111,10 @@ function Header(props) {
                   data-name="copy kat"
                   transform="translate(60.042 91.292)"
                   fill="#cbcbcb"
-                  font-size="12"
-                  font-family="Montserrat-SemiBold, Montserrat"
-                  font-weight="600"
-                  letter-spacing="-0.01em"
+                  fontSize="12"
+                  fontFamily="Montserrat-SemiBold, Montserrat"
+                  fontWeight="600"
+                  letterSpacing="-0.01em"
                 >
                   <tspan x="0" y="0">
                     copy kat
