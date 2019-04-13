@@ -156,7 +156,6 @@ if (module.hot) {
     const NextRoot = require('./containers/Root').default;
     render(
       <React.Fragment>
-        <CssBaseline />
         <MuiThemeProvider theme={theme}>
           <AppContainer>
             <NextRoot store={store} history={history} />

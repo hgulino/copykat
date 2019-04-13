@@ -3,7 +3,7 @@ import BigCalendar from 'react-big-calendar'
 import events from '../utils/events'
 import dates from '../utils/dates'
 import moment from 'moment';
-import 'react-big-calendar/lib/css/react-big-calendar.css'
+
 
 let allViews = Object.keys(BigCalendar.Views).map(k => BigCalendar.Views[k])
 

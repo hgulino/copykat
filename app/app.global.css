@@ -18,12 +18,12 @@ html {
 
 body {
     margin: 0;
-    background-color: #fafafa;
+    background-color: #383838;
     overflow: hidden;
 }
 
 @media print {
     body {
-        background-color: #fff;
+        background-color: #383838;
     }
 }
