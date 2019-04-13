@@ -21,7 +21,6 @@ const styles = theme => ({
   main: {
     flex: 1,
     padding: '48px 36px 0'
-    // margin: 'auto'
   }
 });
 
@@ -55,6 +54,13 @@ class Content extends Component {
       <div className={classes.main}>
         <Grid container justify="center" spacing={16}>
           <ProjectCreateCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
+          <ProjectCard />
           <ProjectCard />
         </Grid>
       </div>
