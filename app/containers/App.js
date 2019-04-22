@@ -12,7 +12,7 @@ const styles = theme => ({
   mainContainer: {
     overflow: 'auto',
     position: 'absolute',
-    top: '78px',
+    top: '50px',
     bottom: 0,
   },
   mainContent: {

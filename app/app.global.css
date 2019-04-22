@@ -3,9 +3,6 @@
  *        See https://github.com/webpack-contrib/sass-loader#imports
  */
 
-@import '~react-big-calendar/lib/css/react-big-calendar.css';
-@import '~react-perfect-scrollbar/dist/css/styles.css';
-
 html {
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
