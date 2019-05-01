@@ -20,6 +20,12 @@ syncHistoryWithStore(store, routerHistory);
 
 const rootElement = document.querySelector(document.currentScript.getAttribute('data-container'));
 
+// Scan directory for default path
+
+// if (localStorage.preferences) {
+//   store.dispatch(setCurrentPath(localStorage.preferences));
+// }
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={routerHistory}>{routes}</ConnectedRouter>
