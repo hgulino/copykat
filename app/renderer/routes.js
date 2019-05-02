@@ -6,5 +6,6 @@ import HeaderMenu from './containers/HeaderMenu'
 export default (
   <Switch>
     <Route exact path="/" component={HeaderMenu} />
+    <Route exact path="/project" component={HeaderMenu} />
   </Switch>
 );
