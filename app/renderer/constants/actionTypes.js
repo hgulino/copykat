@@ -1,2 +1,0 @@
-export const PROJECT_OPENED = 'PROJECT_OPENED'
-export const PROJECT_CLOSED = 'PROJECT_CLOSED'

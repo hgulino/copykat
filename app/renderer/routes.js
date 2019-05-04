@@ -1,11 +1,16 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
 
-import HeaderMenu from './containers/HeaderMenu'
+import Menu from './containers/MenuConnect'
+import Home from './containers/HomeConnect'
+import Settings from './containers/SettingsConnect'
 
 export default (
   <Switch>
-    <Route exact path="/" component={HeaderMenu} />
-    <Route exact path="/project" component={HeaderMenu} />
+    <React.Fragment>
+      <Menu />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/settings" component={Settings} />
+    </React.Fragment>
   </Switch>
 );

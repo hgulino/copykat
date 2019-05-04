@@ -1,13 +1,21 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { connectRouter, routerMiddleware, push } from 'connected-react-router';
 import persistState from 'redux-localstorage';
-import thunk from 'redux-thunk';
-
+import createSagaMiddleware from 'redux-saga'
+import rootSaga from './sagas'
 import project from './reducers/project'
 import projectActions from './actions/project'
 
 export default function configureStore(initialState, routerHistory) {
   const router = routerMiddleware(routerHistory);
+  const sagaMiddleware = createSagaMiddleware()
+
+  const syncHistoryWithStore = (store, history) => {
+    const { router } = store.getState();
+    if (router && router.location) {
+      history.replace(router.location);
+    }
+  };
 
   const actionCreators = {
     ...projectActions,
@@ -19,7 +27,7 @@ export default function configureStore(initialState, routerHistory) {
     project: project,
   };
 
-  const middlewares = [thunk, router];
+  const middlewares = [sagaMiddleware, router];
 
   const composeEnhancers = (() => {
     const compose_ = window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
@@ -30,7 +38,10 @@ export default function configureStore(initialState, routerHistory) {
   })();
 
   const enhancer = composeEnhancers(applyMiddleware(...middlewares), persistState());
-  const rootReducer = combineReducers(reducers);
+  const rootReducer = combineReducers(reducers); 
 
-  return createStore(rootReducer, initialState, enhancer);
+  const store = createStore(rootReducer, initialState, enhancer);
+  sagaMiddleware.run(rootSaga);
+  syncHistoryWithStore(store, routerHistory);
+  return store
 }

@@ -1,16 +1,24 @@
 import {
-  PROJECT_OPENED,
-  PROJECT_CLOSED
-} from '../constants/actionTypes';
+  SET_CURRENT_PROJECT,
+  SET_DIRECTORY_PATH,
+  GET_DIRECTORY_PROJECTS
+} from '../constants/types';
 
-export function projectOpened() {
+export function setCurrentProject() {
   return {
-      type: PROJECT_OPENED
+      type: SET_CURRENT_PROJECT
   }
 }
 
-export function projectClosed() {
+export function setDirectoryPath(path) {
   return {
-      type: PROJECT_CLOSED
+      type: SET_DIRECTORY_PATH,
+      payload: path
+  }
+}
+
+export function scanDirectoryProjects() {
+  return {
+    type: GET_DIRECTORY_PROJECTS
   }
 }

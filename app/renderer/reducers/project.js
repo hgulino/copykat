@@ -1,23 +1,24 @@
 import {
-  PROJECT_OPENED,
-  PROJECT_CLOSED
-} from '../constants/actionTypes';
+  SET_CURRENT_PROJECT,
+  SET_DIRECTORY_PATH
+} from '../constants/types';
 
 const initialState = {
-  inProject: false
+  projectId: null,
+  directory: null
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case PROJECT_OPENED:
+    case SET_CURRENT_PROJECT:
       return {
         ...state,
-        inProject: true
+        projectId: action.payload
       };
-    case PROJECT_CLOSED:
+    case SET_DIRECTORY_PATH:
       return {
         ...state,
-        inProject: false
+        directory: action.payload
       }
     default: return state
   }
