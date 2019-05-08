@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 export default class Home extends Component {
 
     componentDidMount() {
-        console.log(this.props.project.directory)
-        this.props.scanDirectoryProjects(this.props.project.directory)
+        this.props.getDirectoryProjects(this.props.project.directory)
     }
 
     render() {

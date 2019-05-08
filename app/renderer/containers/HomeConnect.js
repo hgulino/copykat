@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import Home from '../components/Home';
-import { scanDirectoryProjects } from '../actions/project'
+import { getDirectoryProjects } from '../actions/project'
 
 const mapStateToProps = (state) => {
   return state;
 };
 
 const mapDispatchToProps = {
-  scanDirectoryProjects
+  getDirectoryProjects
 }
 
 export default connect(

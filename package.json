@@ -43,6 +43,9 @@
     "eslint": "^5.1.0",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-react": "^7.1.0",
+    "jest": "^24.7.1",
+    "mock-fs": "^4.9.0",
+    "mockdate": "^2.0.2",
     "npm-run-all": "^4.0.1",
     "prettier": "^1.13.7",
     "redux-mock-store": "^1.2.2",
@@ -51,7 +54,7 @@
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "dev": "npm run private:compile -- --source-maps true && run-p -r private:watch private:serve",
-    "test": "electron-mocha --renderer -R spec --require @babel/register test/**/*.spec.js",
+    "test": "jest",
     "lint": "eslint --no-ignore scripts app test *.js",
     "format": "npm run private:format -- --write",
     "check-format": "npm run private:format -- --list-different",
