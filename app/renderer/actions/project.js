@@ -1,8 +1,6 @@
 import {
   SET_CURRENT_PROJECT,
-  SET_DIRECTORY_PATH,
-  GET_DIRECTORY_PROJECTS,
-  PROJECTS_LOADING
+  SET_APP_METADATA_PATH
 } from '../constants/types';
 
 export function setCurrentProject() {
@@ -11,22 +9,9 @@ export function setCurrentProject() {
   }
 }
 
-export function setDirectoryPath(path) {
+export function setAppMetadataPath(path) {
   return {
-    type: SET_DIRECTORY_PATH,
+    type: SET_APP_METADATA_PATH,
     payload: path
-  }
-}
-
-export function getDirectoryProjects(path) {
-  return {
-    type: GET_DIRECTORY_PROJECTS,
-    path: path
-  }
-}
-
-export function loadingProjects() {
-  return {
-    type: PROJECTS_LOADING,
   }
 }
