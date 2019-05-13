@@ -11,13 +11,13 @@ export default class Settings extends Component {
                 properties: ['openDirectory']
             })
             if (path !== undefined) {
-                props.setDirectoryPath(path[0])
+                props.setAppMetadataPath(path[0])
             }
         };
         return (
             <div>
                 <br />
-                <h4>The current directory is {props.project.directory}</h4>
+                <h4>The current directory is {props.settings.metadataPath}</h4>
                 <button onClick={openPath}>Change save path</button>
             </div>
         )

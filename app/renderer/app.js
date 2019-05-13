@@ -5,7 +5,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { createMemoryHistory } from 'history';
 import routes from './routes';
 import configureStore from './store';
-import { setDirectoryPath } from './actions/project'
+import { setAppMetadataPath } from './actions/settings'
 const app = require('electron').remote.app
 
 const initialState = {};
@@ -16,7 +16,7 @@ const rootElement = document.querySelector(document.currentScript.getAttribute('
 
 // Scan localstorage for default path. If null, default to user's Documents folder
 if (!localStorage.redux) {
-  store.dispatch(setDirectoryPath(app.getPath("documents")));
+  store.dispatch(setAppMetadataPath(app.getPath("documents")));
 }
 
 ReactDOM.render(

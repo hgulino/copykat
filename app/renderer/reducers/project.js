@@ -8,6 +8,7 @@ import {
 	LOAD_CURRENT_PROJECT_REQUESTED,
 	LOAD_CURRENT_PROJECT_SUCCEEDED,
 	LOAD_CURRENT_PROJECT_FAILED,
+	UPDATE_NEW_PROJECT_FORM
 } from '../constants/types';
 
 const initialState = {
@@ -23,7 +24,7 @@ const initialState = {
 		errors: [],
 		loading: false
 	},
-	projects: {},
+	list: [],
 	loading: false,
 	error: ''
 }
@@ -41,7 +42,7 @@ export default (state = initialState, action) => {
 		case LOAD_PROJECT_METADATA_SUCCEEDED:
 			return {
 				...state,
-				projects: action.payload,
+				list: action.payload,
 				loading: false
 			}
 		/** Oh no! An error occured and the message is sent to the state. */
@@ -56,6 +57,12 @@ export default (state = initialState, action) => {
 		case CREATE_PROJECT_METADATA_REQUESTED:
 			return {
 				...state,
+				list: [
+					...state.list,
+					{
+						name: action.payload.name
+					}
+				]
 			}
 		/** Success! The app state now includes the newly created project */
 		case CREATE_PROJECT_METADATA_SUCCEEDED:
@@ -100,6 +107,15 @@ export default (state = initialState, action) => {
 					loading: false,
 					error: action.payload
 				}
+			}
+		case UPDATE_NEW_PROJECT_FORM:
+			return {
+				...state,
+				createProjectForm: {
+					...state.createProjectForm,
+					...action.payload
+				},
+
 			}
 		default: return state
 	}

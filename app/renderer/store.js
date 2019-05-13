@@ -4,7 +4,9 @@ import persistState from 'redux-localstorage';
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas'
 import project from './reducers/project'
+import settings from './reducers/settings'
 import projectActions from './actions/project'
+import settingsActions from './actions/settings'
 
 export default function configureStore(initialState, routerHistory) {
   const router = routerMiddleware(routerHistory);
@@ -19,12 +21,14 @@ export default function configureStore(initialState, routerHistory) {
 
   const actionCreators = {
     ...projectActions,
+    ...settingsActions,
     push,
   };
 
   const reducers = {
     router: connectRouter(routerHistory),
     project: project,
+    settings: settings
   };
 
   const middlewares = [sagaMiddleware, router];
