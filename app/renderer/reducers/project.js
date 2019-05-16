@@ -21,10 +21,10 @@ const initialState = {
 		type: null,
 		path: '',
 		files: {},
-		errors: [],
+		errors: {},
 		loading: false
 	},
-	list: [],
+	list: {},
 	loading: false,
 	error: ''
 }
@@ -57,12 +57,14 @@ export default (state = initialState, action) => {
 		case CREATE_PROJECT_METADATA_REQUESTED:
 			return {
 				...state,
-				list: [
+				list: {
 					...state.list,
+					[action.project.id]:
 					{
-						name: action.payload.name
+						name: action.project.name,
+						projectPath: action.project.projectPath
 					}
-				]
+				}
 			}
 		/** Success! The app state now includes the newly created project */
 		case CREATE_PROJECT_METADATA_SUCCEEDED:

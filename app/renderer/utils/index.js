@@ -8,3 +8,10 @@ export function formattedTimestamp() {
   const s = timeStamp.getSeconds();
   return y + '-' + m + '-' + d + '-' + h + mi + s;
 }
+
+export function formattedFileName(fileName) {
+  if (fileName === null) {
+    throw new Error('No file name provided')
+  }
+  return fileName.replace(/[^a-z0-9]/gi, '-').toLowerCase();
+}

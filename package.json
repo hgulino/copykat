@@ -14,6 +14,7 @@
     "connected-react-router": "^5.0.1",
     "electron-screencapture": "^1.1.0",
     "history": "^4.6.3",
+    "lodash": "^4.17.11",
     "prop-types": "^15.5.10",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -24,7 +25,9 @@
     "redux-localstorage": "^0.4.1",
     "redux-saga": "^1.0.2",
     "redux-thunk": "^2.2.0",
-    "validate.js": "^0.12.0"
+    "shortid": "^2.2.14",
+    "validate.js": "^0.12.0",
+    "validator": "^10.11.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.1.2",

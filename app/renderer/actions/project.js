@@ -4,6 +4,7 @@ import {
 	CREATE_PROJECT_METADATA_REQUESTED
 
 } from '../constants/types';
+import shortid from 'shortid';
 
 export function setCurrentProject() {
 	return {
@@ -18,9 +19,12 @@ export function updateNewProjectForm(data) {
 	}
 }
 
-export function addNewProject(data) {
+export function addNewProject(project) {
 	return {
 		type: CREATE_PROJECT_METADATA_REQUESTED,
-		payload: data
+		project: {
+			id: shortid.generate(),
+			...project
+		}
 	}
 }

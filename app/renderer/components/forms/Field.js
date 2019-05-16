@@ -1,22 +1,6 @@
 import React, { Component } from 'react'
-const { dialog } = require('electron').remote
 
 export default class Field extends Component {
-
-	onChange = (e) => {
-		this.props.updateForm({ [event.target.id]: e.target.value })
-	};
-
-	openPath = (e) => {
-		e.preventDefault()
-		const path = dialog.showOpenDialog({
-			properties: ['openDirectory']
-		})
-		if (path !== undefined) {
-			this.props.updateForm({ path: path[0] })
-		}
-	};
-
 	render() {
 		const props = this.props
 
@@ -28,14 +12,17 @@ export default class Field extends Component {
 						<input
 							id={props.id}
 							type={props.type}
-							onChange={this.onChange}
+							onChange={props.onChange}
 							value={props.value} />
+						{props.error && <span className="help-block">{props.error}</span>}
 					</div>
 				)
 			case "dialog":
 				return (
 					<div>
-						<button onClick={this.openPath}>{props.label}</button>
+						<div>{props.value}</div>
+						<button id={props.id} type="button" onClick={props.onChange}>{props.label}</button>
+						{props.error && <span className="help-block">{props.error}</span>}
 					</div>
 				)
 
@@ -46,8 +33,9 @@ export default class Field extends Component {
 						<input
 							id={props.id}
 							type="text"
-							onChange={this.onChange}
+							onChange={props.onChange}
 							value={props.value} />
+						{props.error && <span className="help-block">{props.error}</span>}
 					</div>
 				)
 		}

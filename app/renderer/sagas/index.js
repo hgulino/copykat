@@ -9,7 +9,7 @@ const fs = window.require('fs');
 
 function* loadAppProjects(action) {
     const path = action.payload + "/metadata.json"
-    console.log("The file " + path + " exists: " + fs.existsSync(path))
+    // console.log("The file " + path + " exists: " + fs.existsSync(path))
     if (path) {
         if (fs.existsSync(path)) {
             yield put({
