@@ -11,6 +11,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/register": "^7.0.0",
+    "@material-ui/core": "^3.9.3",
     "connected-react-router": "^5.0.1",
     "electron-screencapture": "^1.1.0",
     "history": "^4.6.3",

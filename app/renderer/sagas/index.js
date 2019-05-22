@@ -1,36 +1,51 @@
-import { put, takeLatest, all } from 'redux-saga/effects';
+import { put, takeLatest, all } from 'redux-saga/effects'
 import {
-    SET_APP_METADATA_PATH,
-    LOAD_APP_METADATA_REQUESTED,
-    LOAD_APP_METADATA_SUCCEEDED,
-    LOAD_APP_METADATA_FAILED
+  SET_APP_METADATA_PATH,
+  LOAD_APP_METADATA_REQUESTED,
+  LOAD_APP_METADATA_SUCCEEDED,
+  LOAD_APP_METADATA_FAILED,
+  CREATE_PROJECT_METADATA_REQUESTED,
+  CREATE_PROJECT_METADATA_SUCCEEDED,
+  CREATE_PROJECT_METADATA_FAILED,
 } from '../constants/types'
-const fs = window.require('fs');
+const fs = window.require('fs')
 
 function* loadAppProjects(action) {
-    const path = action.payload + "/metadata.json"
-    // console.log("The file " + path + " exists: " + fs.existsSync(path))
-    if (path) {
-        if (fs.existsSync(path)) {
-            yield put({
-                type: LOAD_APP_METADATA_REQUESTED
-            })
-            const json = yield fs.readFile(path, function (err, data) {
-                if (err) { console.log(err) }
-                return data
-            })
-            yield put({
-                type: LOAD_APP_METADATA_SUCCEEDED,
-                payload: json,
-            });
+  const path = action.payload + '/metadata.json'
+  // console.log("The file " + path + " exists: " + fs.existsSync(path))
+  if (path) {
+    if (fs.existsSync(path)) {
+      yield put({
+        type: LOAD_APP_METADATA_REQUESTED,
+      })
+      const json = yield fs.readFile(path, function(err, data) {
+        if (err) {
+          console.log(err)
         }
-    } else {
-        yield put({
-            type: LOAD_APP_METADATA_FAILED,
-            payload: 'No path passed to generator function'
-        })
+        return data
+      })
+      yield put({
+        type: LOAD_APP_METADATA_SUCCEEDED,
+        payload: json,
+      })
     }
+  } else {
+    yield put({
+      type: LOAD_APP_METADATA_FAILED,
+      payload: 'No path passed to generator function',
+    })
+  }
+}
 
+function* createNewProject(action) {
+  console.log(action)
+  const path = action.project.projectPath
+  if (!fs.existsSync(path)) {
+    yield fs.mkdirSync(path)
+    yield put({
+      type: CREATE_PROJECT_METADATA_SUCCEEDED,
+    })
+  }
 }
 
 // function* createDefaultProjectList(action) {
@@ -71,11 +86,13 @@ function* loadAppProjects(action) {
 // }
 
 function* actionWatcher() {
-    yield takeLatest(SET_APP_METADATA_PATH, loadAppProjects)
+  yield takeLatest(SET_APP_METADATA_PATH, loadAppProjects)
+}
+
+function* createNewProjectWatcher() {
+  yield takeLatest(CREATE_PROJECT_METADATA_REQUESTED, createNewProject)
 }
 
 export default function* rootSaga() {
-    yield all([
-        actionWatcher(),
-    ]);
+  yield all([actionWatcher(), createNewProjectWatcher()])
 }

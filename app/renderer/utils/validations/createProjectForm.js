@@ -2,26 +2,35 @@ import Validator from 'validator'
 import isEmpty from 'lodash/isEmpty'
 import fs from 'fs'
 
-export default function validateInput(data) {
-	let errors = {}
-	console.log(data)
+export default async function validateInput(data) {
 
-	if (Validator.isEmpty(data.name)) {
-		errors.name = 'This field is required'
-	}
+  function checkDirectory(projectPath, errors) {
+    return new Promise(resolve => {
+      fs.access(projectPath + '/' + data.name, fs.F_OK, (err) => {
 
-	if (Validator.isEmpty(data.projectPath)) {
-		errors.projectPath = 'This field is required'
-	}
+        if (!err) {
+          resolve(errors.projectPath = 'Path exists')
+        } else {
+          resolve()
+        }
+      })
+    });
+  }
 
-	fs.access(data.projectPath, fs.constants.F_OK, (err) => {
-		if (err) {
-			errors.projectPath = 'This directory already exists'
-		}
-	});
+  const errors = {}
 
-	return {
-		errors,
-		isValid: isEmpty(errors)
-	}
+  if (Validator.isEmpty(data.name)) {
+    errors.name = 'This field is required'
+  }
+
+  if (Validator.isEmpty(data.projectPath)) {
+    errors.projectPath = 'This field is required'
+  }
+
+  await checkDirectory(data.projectPath, errors)
+
+  return {
+    errors,
+    isValid: isEmpty(errors),
+  }
 }
