@@ -1,16 +1,37 @@
 import React from 'react';
-import { Switch, Route } from 'react-router';
-
-import Menu from './containers/MenuConnect'
+import { Route } from 'react-router';
 import Home from './containers/HomeConnect'
 import Settings from './containers/SettingsConnect'
+import Files from './containers/FilesConnect'
+
+import App from './components/layout/App'
+import { CSSTransition } from 'react-transition-group'
+
+
+const routes = [
+  { path: '/', name: 'Home', Component: Home },
+  { path: '/settings', name: 'Settings', Component: Settings },
+  { path: '/files', name: 'Files', Component: Files }
+]
 
 export default (
-  <Switch>
-    <React.Fragment>
-      <Menu />
-      <Route exact path="/" component={Home} />
-      <Route exact path="/settings" component={Settings} />
-    </React.Fragment>
-  </Switch>
+  <App>
+    {routes.map(({ path, Component }) => (
+      <Route key={path} exact path={path}>
+        {({ match }) => (
+          <CSSTransition
+            in={match != null}
+            timeout={300}
+            classNames="page"
+            unmountOnExit
+          >
+            <div className="page">
+              <Component />
+            </div>
+          </CSSTransition>
+        )}
+      </Route>
+    ))}
+  </App>
 );
+

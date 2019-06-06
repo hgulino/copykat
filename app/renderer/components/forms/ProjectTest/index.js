@@ -3,8 +3,17 @@ import Field from '../Field'
 import { formattedFileName } from '../../../utils'
 import validateInput from '../../../utils/validations/createProjectForm'
 const { dialog } = require('electron').remote
+import { withStyles } from '@material-ui/core/styles'
+import FolderIcon from '@material-ui/icons/Folder';
 
-export default class NewProjectForm extends Component {
+
+const styles = theme => ({
+  rightIcon: {
+    marginRight: '8px',
+  },
+});
+
+class NewProjectForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -25,7 +34,7 @@ export default class NewProjectForm extends Component {
         this.setState({ errors })
       } else {
         this.setState({ errors: {} })
-        this.setState({projectPath: this.state.projectPath + "/" + this.state.name})
+        this.setState({ projectPath: this.state.projectPath + "/" + this.state.name })
         this.props.addNewProject(this.state)
       }
     })
@@ -33,12 +42,13 @@ export default class NewProjectForm extends Component {
 
   onChange(e) {
     e.preventDefault()
-    if (e.target.type == 'button') {
+    if (e.currentTarget.id == 'projectPath') {
       const location = dialog.showOpenDialog({
         properties: ['openDirectory'],
       })
+      console.log(location)
       if (location !== undefined) {
-        this.setState({ [e.target.id]: location[0] })
+        this.setState({ [e.currentTarget.id]: location[0] })
       }
     } else {
       this.setState({ [e.target.id]: e.target.value })
@@ -46,27 +56,35 @@ export default class NewProjectForm extends Component {
   }
 
   render() {
-    const { errors, name, projectPath, isLoading } = this.state
+    const {classes} = this.props
+    const { errors, name, projectPath } = this.state
     return (
       <form onSubmit={this.onSubmit}>
         <Field
           id={'name'}
           type={'text'}
-          label={'Project name:'}
+          label={'Project name'}
           value={formattedFileName(name)}
           onChange={this.onChange}
           error={errors.name}
+          helperText={'A unique name for your project'}
         />
         <Field
           id={'projectPath'}
           type={'dialog'}
+          variant={'outlined'}
           label={'Project path'}
           value={projectPath}
           onChange={this.onChange}
           error={errors.projectPath}
-        />
+          helperText={'The local directory for your project'}
+        >
+          <FolderIcon className={classes.rightIcon}/>
+        </Field>
         <button type="submit">Create new project</button>
       </form>
     )
   }
 }
+
+export default withStyles(styles)(NewProjectForm)

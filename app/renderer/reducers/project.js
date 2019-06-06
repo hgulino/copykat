@@ -8,7 +8,9 @@ import {
 	LOAD_CURRENT_PROJECT_REQUESTED,
 	LOAD_CURRENT_PROJECT_SUCCEEDED,
 	LOAD_CURRENT_PROJECT_FAILED,
-	UPDATE_NEW_PROJECT_FORM
+	UPDATE_NEW_PROJECT_FORM,
+	TOGGLE_CREATE_PROJECT_FORM,
+	SET_CURRENT_PROJECT
 } from '../constants/types';
 
 const initialState = {
@@ -17,11 +19,7 @@ const initialState = {
 		loading: true
 	},
 	createProjectForm: {
-		name: '',
-		type: null,
-		path: '',
-		files: {},
-		errors: {},
+		visible: false,
 		loading: false
 	},
 	list: {},
@@ -61,6 +59,7 @@ export default (state = initialState, action) => {
 					...state.list,
 					[action.project.id]:
 					{
+						id: action.project.id,
 						name: action.project.name,
 						projectPath: action.project.projectPath
 					}
@@ -118,6 +117,21 @@ export default (state = initialState, action) => {
 					...action.payload
 				},
 
+			}
+		case TOGGLE_CREATE_PROJECT_FORM: 
+			return {
+				...state,
+				createProjectForm: {
+					visible: !state.createProjectForm.visible,
+					loading: false
+				}
+			}
+		case SET_CURRENT_PROJECT: 
+			return {
+				...state,
+				currentProject: {
+					id: action.payload
+				}
 			}
 		default: return state
 	}

@@ -9,7 +9,7 @@ export default async function validateInput(data) {
       fs.access(projectPath + '/' + data.name, fs.F_OK, (err) => {
 
         if (!err) {
-          resolve(errors.projectPath = 'Path exists')
+          resolve(errors.projectPath = 'This directory already exists')
         } else {
           resolve()
         }

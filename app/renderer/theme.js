@@ -3,9 +3,18 @@ import { createMuiTheme } from '@material-ui/core/styles';
 let theme = createMuiTheme({
   typography: {
     useNextVariants: true,
+    h1: {
+      fontSize: 28,
+      fontWeight: 500
+    },
     subtitle1: {
       fontSize: 14,
       color: '#CBCBCB'
+    },
+    subtitle2: {
+      fontSize: 14,
+      fontWeight: 400,
+      color: 'white'
     },
     body1: {
       fontSize: 12,
@@ -15,8 +24,11 @@ let theme = createMuiTheme({
   palette: {
     primary: {
       light: '#63ccff',
-      main: '#009be5',
-      dark: '#006db3'
+      main: '#16BEFD',
+      dark: '#CBCBCB'
+    },
+    secondary: {
+      main: '#5BC85B'
     },
     error: {
       main: '#F66262'
@@ -55,7 +67,7 @@ theme = {
     },
     MuiTabs: {
       root: {
-        marginLeft: theme.spacing.unit
+        marginLeft: theme.spacing(1)
       },
       indicator: {
         height: 3,
@@ -64,8 +76,27 @@ theme = {
         backgroundColor: theme.palette.common.blue
       }
     },
+    MuiOutlinedInput: {
+      root: {
+        borderWidth: 1,
+        position: 'relative',
+        '& $notchedOutline': {
+          borderColor: '#707070',
+        },
+        '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
+          borderColor: '#777777',
+          '@media (hover: none)': {
+            borderColor: '#707070',
+          },
+        },
+        '&$focused $notchedOutline': {
+          borderColor: '#707070',
+        },
+      }
+    },
     MuiTab: {
       root: {
+        fontWeight: 400,
         textTransform: 'initial',
         margin: '0 16px',
         minWidth: 0,
@@ -73,16 +104,16 @@ theme = {
           minWidth: 0
         }
       },
-      labelContainer: {
-        padding: 0,
-        [theme.breakpoints.up('md')]: {
-          padding: 0
-        }
-      }
+      // labelContainer: {
+      //   padding: 0,
+      //   [theme.breakpoints.up('md')]: {
+      //     padding: 0
+      //   }
+      // }
     },
     MuiIconButton: {
       root: {
-        padding: theme.spacing.unit
+        padding: theme.spacing(1)
       }
     },
     MuiTooltip: {
