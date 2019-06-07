@@ -1,10 +1,9 @@
-import { connect } from 'react-redux';
-import Header from '../components/Menu';
+import { connect } from 'react-redux'
+
+import Header from '../components/Header'
 
 const mapStateToProps = (state) => {
-  return state;
-};
+  return state
+}
 
-export default connect(
-  mapStateToProps,
-)(Header);
+export default connect(mapStateToProps)(Header)

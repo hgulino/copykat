@@ -1,18 +1,17 @@
-import { connect } from 'react-redux';
-import NewProjectForm from '../../components/forms/ProjectTest';
+import { connect } from 'react-redux'
 
-import { updateNewProjectForm, addNewProject } from '../../actions/project'
+import { addNewProject } from '../../actions/project'
+import NewProjectForm from '../../components/forms/ProjectTest'
 
 const mapStateToProps = (state) => {
-  return state;
-};
+  return state
+}
 
 const mapDispatchToProps = {
-  updateNewProjectForm,
-  addNewProject
+  addNewProject,
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(NewProjectForm);
+  mapDispatchToProps,
+)(NewProjectForm)

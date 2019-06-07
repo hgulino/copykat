@@ -1,34 +1,34 @@
-import React, { Component } from 'react'
-import Grid from '@material-ui/core/Grid'
-import { withStyles } from '@material-ui/core/styles';
-import ProjectCard from './cards/ProjectCard'
-import NewProjectForm from '../containers/forms/NewProjectConnect'
-const shell = require('electron').shell
+import { Typography } from '@material-ui/core'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
-import { Typography } from '@material-ui/core';
+import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
+import React, { Component } from 'react'
+
+import NewProjectForm from '../containers/forms/NewProjectConnect'
+import ProjectCard from './cards/ProjectCard'
 import ProjectCreateCard from './cards/ProjectCreateCard'
 import PageHeader from './layout/PageHeader'
 
+const shell = require('electron').shell
 
-
-const styles = theme => ({
+const styles = () => ({
   main: {
     padding: '48px 20px 20px',
     // width: '1000px'
   },
   spacer: {
     position: 'relative',
-    width: 316
+    width: 316,
   },
   outlined: {
     padding: '20px',
     borderStyle: 'solid',
     borderWidth: '1px',
     borderColor: '#CBCBCB',
-    borderRadius: '8px'
+    borderRadius: '8px',
   },
-});
+})
 
 class Home extends Component {
   componentDidMount() {
@@ -51,13 +51,13 @@ class Home extends Component {
 
   render() {
     const props = this.props
-    const { classes } = this.props;
+    const { classes } = this.props
 
     if (props.project.list.length == 0) {
       return (
         <div>
           <h1>Projects</h1>
-          <div>Can't seem to find anything...</div>
+          <p>Can't seem to find anything...</p>
           <br />
           <NewProjectForm />
         </div>
@@ -65,12 +65,12 @@ class Home extends Component {
     } else {
       var json = props.project.list
       var projects = []
-      Object.keys(json).forEach(function (key) {
+      Object.keys(json).forEach(function(key) {
         projects.push(json[key])
       })
 
       return (
-        <div className={classes.main} >
+        <div className={classes.main}>
           <Grid container justify="center">
             <PageHeader />
             <Grid container item justify="center" spacing={2}>
@@ -83,10 +83,12 @@ class Home extends Component {
                   onClick={this.openProject.bind(this, item.name)}
                 />
               ))}
-              <Grid item className={classes.spacer}></Grid>
-              <Grid item className={classes.spacer}></Grid>
-              <Grid item className={classes.spacer}></Grid>
-              <Dialog open={this.props.project.createProjectForm.visible} onClose={this.openForm.bind(this)}>
+              <Grid item className={classes.spacer} />
+              <Grid item className={classes.spacer} />
+              <Grid item className={classes.spacer} />
+              <Dialog
+                open={this.props.project.createProjectForm.visible}
+                onClose={this.openForm.bind(this)}>
                 <DialogContent>
                   <Typography variant="h5">New project creation</Typography>
                   <div className={classes.outlined}>
@@ -102,4 +104,4 @@ class Home extends Component {
   }
 }
 
-export default withStyles(styles)(Home);
+export default withStyles(styles)(Home)

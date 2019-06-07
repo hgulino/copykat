@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import Header from '../../containers/HeaderConnect';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
 
-const styles = theme => ({
+import Header from '../../containers/HeaderConnect'
+
+const styles = () => ({
   root: {
     minHeight: '100vh',
     background: '#383838',
-    position: 'relative'
+    position: 'relative',
   },
   mainContainer: {
     overflow: 'auto',
@@ -18,20 +19,20 @@ const styles = theme => ({
   mainContent: {
     flex: 1,
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   '@global': {
     '*::-webkit-scrollbar': {
-      width: '0.8em'
+      width: '0.8em',
     },
     '*::-webkit-scrollbar-track': {
-      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
+      '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)',
     },
     '*::-webkit-scrollbar-thumb': {
       backgroundColor: '#707070',
       '&:hover': {
         backgroundColor: '#606060',
-      }
+      },
     },
     '.page': {
       overflowY: 'auto',
@@ -50,30 +51,30 @@ const styles = theme => ({
     },
     '.page-exit': {
       opacity: 1,
-      transform: 'scale(1)'
+      transform: 'scale(1)',
     },
     '.page-exit-active': {
       opacity: 0,
       transform: 'scale(0.9)',
-      transition: 'opacity 300ms, transform 300ms'
+      transition: 'opacity 300ms, transform 300ms',
     },
-  }
-});
+  },
+})
 
 class App extends Component {
   render() {
-    const { classes, children } = this.props;
+    const { classes, children } = this.props
     return (
       <div className={classes.root}>
         <Header />
         <main>{children}</main>
       </div>
-    );
+    )
   }
 }
 
 App.propTypes = {
-  classes: PropTypes.object.isRequired
-};
+  classes: PropTypes.object.isRequired,
+}
 
-export default withStyles(styles, { withTheme: true })(App);
+export default withStyles(styles, { withTheme: true })(App)

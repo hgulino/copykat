@@ -1,51 +1,52 @@
-import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
-import { connectRouter, routerMiddleware, push } from 'connected-react-router';
-import persistState from 'redux-localstorage';
+import { connectRouter, push, routerMiddleware } from 'connected-react-router'
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux'
+import persistState from 'redux-localstorage'
 import createSagaMiddleware from 'redux-saga'
-import rootSaga from './sagas'
+
+import * as projectActions from './actions/project'
+import * as settingsActions from './actions/settings'
 import project from './reducers/project'
 import settings from './reducers/settings'
-import projectActions from './actions/project'
-import settingsActions from './actions/settings'
+import rootSaga from './sagas'
 
 export default function configureStore(initialState, routerHistory) {
-  const router = routerMiddleware(routerHistory);
+  const router = routerMiddleware(routerHistory)
   const sagaMiddleware = createSagaMiddleware()
 
   const syncHistoryWithStore = (store, history) => {
-    const { router } = store.getState();
+    const { router } = store.getState()
     if (router && router.location) {
-      history.replace(router.location);
+      history.replace(router.location)
     }
-  };
+  }
 
   const actionCreators = {
     ...projectActions,
     ...settingsActions,
     push,
-  };
+  }
 
   const reducers = {
     router: connectRouter(routerHistory),
     project: project,
-    settings: settings
-  };
+    settings: settings,
+  }
 
-  const middlewares = [sagaMiddleware, router];
+  const middlewares = [sagaMiddleware, router]
 
   const composeEnhancers = (() => {
-    const compose_ = window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+    const compose_ = window && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
     if (process.env.NODE_ENV === 'development' && compose_) {
-      return compose_({ actionCreators });
+      return compose_({ actionCreators })
     }
-    return compose;
-  })();
+    return compose
+  })()
 
-  const enhancer = composeEnhancers(applyMiddleware(...middlewares), persistState());
-  const rootReducer = combineReducers(reducers); 
+  const enhancer = composeEnhancers(applyMiddleware(...middlewares), persistState())
+  const rootReducer = combineReducers(reducers)
 
-  const store = createStore(rootReducer, initialState, enhancer);
-  sagaMiddleware.run(rootSaga);
-  syncHistoryWithStore(store, routerHistory);
+  const store = createStore(rootReducer, initialState, enhancer)
+  sagaMiddleware.run(rootSaga)
+  syncHistoryWithStore(store, routerHistory)
   return store
 }

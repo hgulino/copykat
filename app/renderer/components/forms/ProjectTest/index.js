@@ -1,18 +1,19 @@
+import Button from '@material-ui/core/Button'
+import { withStyles } from '@material-ui/core/styles'
+import FolderIcon from '@material-ui/icons/Folder'
 import React, { Component } from 'react'
-import Field from '../Field'
+
 import { formattedFileName } from '../../../utils'
 import validateInput from '../../../utils/validations/createProjectForm'
+import Field from '../Field'
+
 const { dialog } = require('electron').remote
-import { withStyles } from '@material-ui/core/styles'
-import FolderIcon from '@material-ui/icons/Folder';
-import Button from '@material-ui/core/Button'
 
-
-const styles = theme => ({
+const styles = () => ({
   rightIcon: {
     marginRight: '8px',
   },
-});
+})
 
 class NewProjectForm extends Component {
   constructor(props) {
@@ -35,7 +36,7 @@ class NewProjectForm extends Component {
         this.setState({ errors })
       } else {
         this.setState({ errors: {} })
-        this.setState({ projectPath: this.state.projectPath + "/" + this.state.name })
+        this.setState({ projectPath: this.state.projectPath + '/' + this.state.name })
         this.props.addNewProject(this.state)
       }
     })
@@ -57,7 +58,7 @@ class NewProjectForm extends Component {
   }
 
   render() {
-    const {classes} = this.props
+    const { classes } = this.props
     const { errors, name, projectPath } = this.state
     return (
       <form onSubmit={this.onSubmit}>
@@ -78,11 +79,12 @@ class NewProjectForm extends Component {
           value={projectPath}
           onChange={this.onChange}
           error={errors.projectPath}
-          helperText={'The local directory for your project'}
-        >
-          <FolderIcon className={classes.rightIcon}/>
+          helperText={'The local directory for your project'}>
+          <FolderIcon className={classes.rightIcon} />
         </Field>
-        <Button loading type="submit">Create new project</Button>
+        <Button loading type="submit">
+          Create new project
+        </Button>
       </form>
     )
   }

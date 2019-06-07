@@ -1,20 +1,18 @@
-import Validator from 'validator'
-import isEmpty from 'lodash/isEmpty'
 import fs from 'fs'
+import isEmpty from 'lodash/isEmpty'
+import Validator from 'validator'
 
 export default async function validateInput(data) {
-
   function checkDirectory(projectPath, errors) {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       fs.access(projectPath + '/' + data.name, fs.F_OK, (err) => {
-
         if (!err) {
-          resolve(errors.projectPath = 'This directory already exists')
+          resolve((errors.projectPath = 'This directory already exists'))
         } else {
           resolve()
         }
       })
-    });
+    })
   }
 
   const errors = {}

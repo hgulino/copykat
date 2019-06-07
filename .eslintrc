@@ -3,7 +3,9 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "prettier"
+    "prettier",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -12,17 +14,24 @@
       "modules": true
     }
   },
-  "plugins": [ "react" ],
+  "plugins": ["react", "prettier", "simple-import-sort", "import"],
   "rules": {
+    "prettier/prettier": "error",
+    "sort-imports": "off",
+    "import/first": "error",
+    "import/newline-after-import": "error",
+    "react/no-find-dom-node": "off",
+    "react/no-unescaped-entities": "off",
     "prefer-const": "warn",
     "no-console": "off",
     "no-loop-func": "warn",
     "new-cap": "off",
     "no-param-reassign": "warn",
     "func-names": "off",
-    "no-unused-expressions" : "error",
-    "block-scoped-var": "error",
-    "react/prop-types": "off"
+    "no-unused-expressions": "error",
+    "quotes": [2, "single", { "avoidEscape": true }],
+    "react/prop-types": "off",
+    "simple-import-sort/sort": "error"
   },
   "settings": {
     "react": {
@@ -32,6 +41,17 @@
   },
   "env": {
     "es6": true,
-    "node": true
-  }
+    "node": true,
+    "jest": true
+  },
+  "overrides": [
+    {
+      "files": "server/**/*.js",
+      "env": { "node": true },
+      "rules": {
+        "simple-import-sort/sort": "off",
+        "import/order": ["error", { "newlines-between": "always" }]
+      }
+    }
+  ]
 }

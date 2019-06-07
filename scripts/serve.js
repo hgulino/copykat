@@ -1,19 +1,19 @@
-import { spawn } from 'child_process';
-import electron from 'electron';
-import browserSync from 'browser-sync';
-import browserSyncConnectUtils from 'browser-sync/dist/connect-utils';
+import browserSync from 'browser-sync'
+import browserSyncConnectUtils from 'browser-sync/dist/connect-utils'
+import { spawn } from 'child_process'
+import electron from 'electron'
 
-const bsync = browserSync.create();
+const bsync = browserSync.create()
 
 const getRootUrl = (options) => {
-  const port = options.get('port');
-  return `http://localhost:${port}`;
-};
+  const port = options.get('port')
+  return `http://localhost:${port}`
+}
 
 const getClientUrl = (options) => {
-  const pathname = browserSyncConnectUtils.clientScript(options);
-  return getRootUrl(options) + pathname;
-};
+  const pathname = browserSyncConnectUtils.clientScript(options)
+  return getRootUrl(options) + pathname
+}
 
 function runElectron(browserSyncUrl) {
   const child = spawn(electron, ['.', '--enable-logging'], {
@@ -25,15 +25,15 @@ function runElectron(browserSyncUrl) {
       ...process.env,
     },
     stdio: 'inherit',
-  });
+  })
 
-  child.on('close', onCloseElectron);
+  child.on('close', onCloseElectron)
 
-  return child;
+  return child
 }
 
 function onCloseElectron() {
-  process.exit();
+  process.exit()
 }
 
 bsync.init(
@@ -52,19 +52,19 @@ bsync.init(
     },
   },
   (err, bs) => {
-    if (err) return console.error(err);
+    if (err) return console.error(err)
 
-    const browserSyncUrl = getClientUrl(bs.options);
+    const browserSyncUrl = getClientUrl(bs.options)
 
-    let child = runElectron(browserSyncUrl);
+    let child = runElectron(browserSyncUrl)
 
     bsync.watch('build/main/**/*').on('change', () => {
-      child.removeListener('close', onCloseElectron);
-      child.kill();
+      child.removeListener('close', onCloseElectron)
+      child.kill()
 
-      child = runElectron(browserSyncUrl);
-    });
+      child = runElectron(browserSyncUrl)
+    })
 
-    bsync.watch('build/renderer/**/*').on('change', bsync.reload);
+    bsync.watch('build/renderer/**/*').on('change', bsync.reload)
   },
-);
+)

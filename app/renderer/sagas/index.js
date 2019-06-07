@@ -1,13 +1,14 @@
-import { put, takeLatest, all } from 'redux-saga/effects'
+import { all, put, takeLatest } from 'redux-saga/effects'
+
 import {
-  SET_APP_METADATA_PATH,
-  LOAD_APP_METADATA_REQUESTED,
-  LOAD_APP_METADATA_SUCCEEDED,
-  LOAD_APP_METADATA_FAILED,
   CREATE_PROJECT_METADATA_REQUESTED,
   CREATE_PROJECT_METADATA_SUCCEEDED,
-  CREATE_PROJECT_METADATA_FAILED,
+  LOAD_APP_METADATA_FAILED,
+  LOAD_APP_METADATA_REQUESTED,
+  LOAD_APP_METADATA_SUCCEEDED,
+  SET_APP_METADATA_PATH,
 } from '../constants/types'
+
 const fs = window.require('fs')
 
 function* loadAppProjects(action) {

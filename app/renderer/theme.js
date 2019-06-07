@@ -1,83 +1,83 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core/styles'
 
 let theme = createMuiTheme({
   typography: {
     useNextVariants: true,
     h1: {
       fontSize: 28,
-      fontWeight: 500
+      fontWeight: 500,
     },
     subtitle1: {
       fontSize: 14,
-      color: '#CBCBCB'
+      color: '#CBCBCB',
     },
     subtitle2: {
       fontSize: 14,
       fontWeight: 400,
-      color: 'white'
+      color: 'white',
     },
     body1: {
       fontSize: 12,
-      color: '#CBCBCB'
-    }
+      color: '#CBCBCB',
+    },
   },
   palette: {
     primary: {
       light: '#63ccff',
       main: '#16BEFD',
-      dark: '#CBCBCB'
+      dark: '#CBCBCB',
     },
     secondary: {
-      main: '#5BC85B'
+      main: '#5BC85B',
     },
     success: {
-      main: '#5BC85B'
+      main: '#5BC85B',
     },
     error: {
-      main: '#F66262'
+      main: '#F66262',
     },
     background: {
-      paper: '#525252'
+      paper: '#525252',
     },
     text: {
       primary: '#FFFFFF',
-      secondary: '#CBCBCB'
-    }
+      secondary: '#CBCBCB',
+    },
   },
   shape: {
-    borderRadius: 8
-  }
-});
+    borderRadius: 8,
+  },
+})
 
 theme = {
   ...theme,
   overrides: {
     MuiDrawer: {
       paper: {
-        backgroundColor: '#18202c'
-      }
+        backgroundColor: '#18202c',
+      },
     },
     MuiButton: {
       label: {
-        textTransform: 'initial'
+        textTransform: 'initial',
       },
       contained: {
         boxShadow: 'none',
         '&:active': {
-          boxShadow: 'none'
-        }
-      }
+          boxShadow: 'none',
+        },
+      },
     },
     MuiTabs: {
       root: {
-        marginLeft: theme.spacing(1)
+        marginLeft: theme.spacing(1),
       },
       indicator: {
         height: 3,
         borderTopLeftRadius: 3,
         borderTopRightRadius: 3,
-        backgroundColor: theme.palette.common.blue
-      }
+        backgroundColor: theme.palette.common.blue,
+      },
     },
     MuiOutlinedInput: {
       root: {
@@ -95,7 +95,7 @@ theme = {
         '&$focused $notchedOutline': {
           borderColor: '#707070',
         },
-      }
+      },
     },
     MuiTab: {
       root: {
@@ -104,8 +104,8 @@ theme = {
         margin: '0 16px',
         minWidth: 0,
         [theme.breakpoints.up('md')]: {
-          minWidth: 0
-        }
+          minWidth: 0,
+        },
       },
       // labelContainer: {
       //   padding: 0,
@@ -116,51 +116,51 @@ theme = {
     },
     MuiIconButton: {
       root: {
-        padding: theme.spacing(1)
-      }
+        padding: theme.spacing(1),
+      },
     },
     MuiTooltip: {
       tooltip: {
-        borderRadius: 4
-      }
+        borderRadius: 4,
+      },
     },
     MuiDivider: {
       root: {
-        backgroundColor: '#404854'
-      }
+        backgroundColor: '#404854',
+      },
     },
     MuiListItemText: {
       primary: {
-        fontWeight: theme.typography.fontWeightMedium
-      }
+        fontWeight: theme.typography.fontWeightMedium,
+      },
     },
     MuiListItemIcon: {
       root: {
         color: 'inherit',
         marginRight: 0,
         '& svg': {
-          fontSize: 20
-        }
-      }
+          fontSize: 20,
+        },
+      },
     },
     MuiAvatar: {
       root: {
         width: 32,
-        height: 32
-      }
-    }
+        height: 32,
+      },
+    },
   },
   props: {
     MuiTab: {
-      disableRipple: true
-    }
+      disableRipple: true,
+    },
   },
   mixins: {
     ...theme.mixins,
     toolbar: {
-      minHeight: 48
-    }
-  }
-};
+      minHeight: 48,
+    },
+  },
+}
 
-export default theme;
+export default theme

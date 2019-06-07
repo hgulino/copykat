@@ -1,22 +1,23 @@
-import { connect } from 'react-redux';
-import Home from '../components/Home';
-import { setCurrentProject, addNewProject, toggleCreateProjectForm } from '../actions/project'
-import { setAppMetadataPath } from '../actions/settings'
 import { push } from 'connected-react-router'
+import { connect } from 'react-redux'
+
+import { addNewProject, setCurrentProject, toggleCreateProjectForm } from '../actions/project'
+import { setAppMetadataPath } from '../actions/settings'
+import Home from '../components/Home'
 
 const mapStateToProps = (state) => {
-  return state;
-};
+  return state
+}
 
 const mapDispatchToProps = {
   setCurrentProject,
   addNewProject,
   setAppMetadataPath,
   toggleCreateProjectForm,
-  push
+  push,
 }
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
-)(Home);
+  mapDispatchToProps,
+)(Home)

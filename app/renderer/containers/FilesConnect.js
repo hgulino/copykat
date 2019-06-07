@@ -1,17 +1,17 @@
-import { connect } from 'react-redux'
-import Files from '../components/Files'
 import { push } from 'connected-react-router'
+import { connect } from 'react-redux'
 
+import Files from '../components/Files'
 
 const mapStateToProps = (state) => {
-    return state;
-};
+  return state
+}
 
 const mapDispatchToProps = {
-    push
+  push,
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Files);
+  mapStateToProps,
+  mapDispatchToProps,
+)(Files)

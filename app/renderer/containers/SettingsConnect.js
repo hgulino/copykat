@@ -1,16 +1,17 @@
-import { connect } from 'react-redux';
-import Settings from '../components/Settings';
+import { connect } from 'react-redux'
+
 import { setAppMetadataPath } from '../actions/settings'
+import Settings from '../components/Settings'
 
 const mapStateToProps = (state) => {
-    return state;
-};
+  return state
+}
 
 const mapDispatchToProps = {
-    setAppMetadataPath
+  setAppMetadataPath,
 }
 
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(Settings);
+  mapStateToProps,
+  mapDispatchToProps,
+)(Settings)
