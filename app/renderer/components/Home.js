@@ -14,8 +14,12 @@ import PageHeader from './layout/PageHeader'
 
 const styles = theme => ({
   main: {
-    padding: '48px 0 0',
+    padding: '48px 20px 20px',
     // width: '1000px'
+  },
+  spacer: {
+    position: 'relative',
+    width: 316
   },
   outlined: {
     padding: '20px',
@@ -66,7 +70,7 @@ class Home extends Component {
       })
 
       return (
-        <div className={classes.main}>
+        <div className={classes.main} >
           <Grid container justify="center">
             <PageHeader />
             <Grid container item justify="center" spacing={2}>
@@ -79,6 +83,9 @@ class Home extends Component {
                   onClick={this.openProject.bind(this, item.name)}
                 />
               ))}
+              <Grid item className={classes.spacer}></Grid>
+              <Grid item className={classes.spacer}></Grid>
+              <Grid item className={classes.spacer}></Grid>
               <Dialog open={this.props.project.createProjectForm.visible} onClose={this.openForm.bind(this)}>
                 <DialogContent>
                   <Typography variant="h5">New project creation</Typography>

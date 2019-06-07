@@ -30,6 +30,9 @@ let theme = createMuiTheme({
     secondary: {
       main: '#5BC85B'
     },
+    success: {
+      main: '#5BC85B'
+    },
     error: {
       main: '#F66262'
     },

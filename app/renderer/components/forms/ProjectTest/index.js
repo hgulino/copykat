@@ -5,6 +5,7 @@ import validateInput from '../../../utils/validations/createProjectForm'
 const { dialog } = require('electron').remote
 import { withStyles } from '@material-ui/core/styles'
 import FolderIcon from '@material-ui/icons/Folder';
+import Button from '@material-ui/core/Button'
 
 
 const styles = theme => ({
@@ -81,7 +82,7 @@ class NewProjectForm extends Component {
         >
           <FolderIcon className={classes.rightIcon}/>
         </Field>
-        <button type="submit">Create new project</button>
+        <Button loading type="submit">Create new project</Button>
       </form>
     )
   }

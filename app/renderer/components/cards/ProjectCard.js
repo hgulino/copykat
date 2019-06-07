@@ -11,6 +11,7 @@ import Chip from '@material-ui/core/Chip';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import IconButton from '@material-ui/core/IconButton';
 import TooltipOverflow from '../layout/TooltipOverflow'
+import Confetti from 'react-confetti'
 
 const styles = theme => ({
 	paper: {
@@ -53,6 +54,10 @@ const styles = theme => ({
 		backgroundColor: theme.palette.error.main,
 		color: theme.palette.text.primary
 	},
+	chipSuccess: {
+		backgroundColor: theme.palette.success.main,
+		color: theme.palette.text.primary
+	},
 	typography: {
 		width: "250px"
 	}
@@ -75,6 +80,12 @@ class ProjectCard extends Component {
 						}}
 						onClick={this.props.onClick}
 					>
+						{this.props.name === 'confetti' ?
+							<Confetti
+								numberOfPieces={80}
+							/> : <div />
+						}
+
 						<Divider className={classes.divider} />
 						<Grid
 							container
@@ -118,7 +129,7 @@ class ProjectCard extends Component {
 								</TooltipOverflow>
 							</Grid>
 							<Grid item>
-								<Chip label="Due soon!" className={classes.chipWarning} />
+								<Chip label="Finished!" className={classes.chipSuccess} />
 							</Grid>
 							<Grid item xs={12}>
 								<TooltipOverflow title={this.props.projectPath} placement="bottom-start">
