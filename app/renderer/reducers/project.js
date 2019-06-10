@@ -59,6 +59,11 @@ export default (state = initialState, action) => {
           [action.project.id]: {
             id: action.project.id,
             name: action.project.name,
+            avatar: action.project.avatar,
+            colors: {
+              primary: action.project.color.primary,
+              secondary: action.project.color.secondary
+            },
             projectPath: action.project.projectPath,
           },
         },

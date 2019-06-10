@@ -4,6 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import { withStyles } from '@material-ui/core/styles'
 import React, { Component } from 'react'
 
+import PropTypes from 'prop-types';
 const styles = (theme) => ({
   main: {
     flex: 1,
@@ -69,6 +70,19 @@ class Field extends Component {
         )
     }
   }
+}
+
+Field.propTypes = {
+  children: PropTypes.element,
+  classes: PropTypes.object.isRequired,
+  error: PropTypes.string,
+  helperText: PropTypes.string,
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+  value: PropTypes.any.isRequired,
+  variant: PropTypes.string
 }
 
 export default withStyles(styles)(Field)

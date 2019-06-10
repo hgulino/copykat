@@ -3,7 +3,7 @@ import Paper from '@material-ui/core/Paper'
 import { withStyles } from '@material-ui/core/styles'
 import React, { Component } from 'react'
 
-import PageHeader from './layout/PageHeader'
+import PageHeader from '../layout/PageHeader'
 
 const styles = () => ({
   content: {

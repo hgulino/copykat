@@ -1,21 +1,21 @@
-import { Typography } from '@material-ui/core'
+import Typography from '@material-ui/core/Typography'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 import React, { Component } from 'react'
 
-import NewProjectForm from '../containers/forms/NewProjectConnect'
-import ProjectCard from './cards/ProjectCard'
-import ProjectCreateCard from './cards/ProjectCreateCard'
-import PageHeader from './layout/PageHeader'
+import NewProjectForm from '../../containers/forms/NewProjectConnectect'
+import ProjectCard from '../cards/ProjectCardd'
+import ProjectCreateCard from '../cards/ProjectCreateCardd'
+import PageHeader from '../layout/PageHeaderr'
+import ClientDropdown from '../forms/ClientDropdown';
 
 const shell = require('electron').shell
 
 const styles = () => ({
   main: {
     padding: '48px 20px 20px',
-    // width: '1000px'
   },
   spacer: {
     position: 'relative',
@@ -26,7 +26,7 @@ const styles = () => ({
     borderStyle: 'solid',
     borderWidth: '1px',
     borderColor: '#CBCBCB',
-    borderRadius: '8px',
+    borderRadius: '8px'
   },
 })
 

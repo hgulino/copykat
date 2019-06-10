@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import { addNewProject } from '../../actions/project'
-import NewProjectForm from '../../components/forms/ProjectTest'
+import NewProjectForm from '../../components/forms/CreateProject'
 
 const mapStateToProps = (state) => {
   return state

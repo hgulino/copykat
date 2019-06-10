@@ -6,6 +6,7 @@ let theme = createMuiTheme({
     h1: {
       fontSize: 28,
       fontWeight: 500,
+      color: '#fff',
     },
     subtitle1: {
       fontSize: 14,
@@ -14,12 +15,15 @@ let theme = createMuiTheme({
     subtitle2: {
       fontSize: 14,
       fontWeight: 400,
-      color: 'white',
+      color: '#fff',
     },
     body1: {
-      fontSize: 12,
-      color: '#CBCBCB',
+      color: '#CBCBCB'
     },
+    body2: {
+      color: '#CBCBCB',
+      fontSize: 12
+    }
   },
   palette: {
     primary: {

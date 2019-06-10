@@ -124,7 +124,7 @@ class ProjectCard extends Component {
               </Grid>
               <Grid item xs={12}>
                 <TooltipOverflow title={this.props.projectPath} placement="bottom-start">
-                  <Typography variant="body1" noWrap className={classes.typography}>
+                  <Typography variant="body2" noWrap className={classes.typography}>
                     {this.props.projectPath}
                   </Typography>
                 </TooltipOverflow>
