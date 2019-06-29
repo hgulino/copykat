@@ -1,6 +1,6 @@
 {
   "name": "copykat",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Copy Kat",
   "main": "init.js",
   "author": {
@@ -13,15 +13,20 @@
     "@babel/register": "^7.0.0",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^3.0.2",
+    "babel-plugin-file-loader": "^1.1.1",
+    "color-convert": "^2.0.0",
     "connected-react-router": "^5.0.1",
     "electron-screencapture": "^1.1.0",
+    "flare-react": "^1.0.2",
     "history": "^4.6.3",
     "lodash": "^4.17.11",
+    "lottie-web": "^5.5.5",
     "prop-types": "^15.5.10",
     "react": "^16.3.0",
     "react-color": "^2.17.3",
     "react-confetti": "^3.1.0",
     "react-dom": "^16.3.0",
+    "react-lottie": "^1.2.3",
     "react-measure": "^2.3.0",
     "react-redux": "^5.0.2",
     "react-router": "^4.1.2",
@@ -82,5 +87,11 @@
     "private:compile": "babel app/ --copy-files --out-dir build",
     "private:clean": "rimraf build",
     "private:format": "prettier \"babel.config.js\" \"scripts/*.js\" \"app/**/*.js\" \"test/**/*.js\""
+  },
+  "build": {
+    "extends": null,
+    "win": {
+      "icon": "./dist-assets/icon.ico"
+    }
   }
 }

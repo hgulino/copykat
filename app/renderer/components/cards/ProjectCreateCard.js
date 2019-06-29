@@ -7,7 +7,7 @@ import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-import CopyKatLogo from '../../icons/copykat-logo'
+import CopyKatLogo from '../../assets/copykat-logo'
 
 const styles = (theme) => ({
   paper: {

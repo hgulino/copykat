@@ -36,13 +36,15 @@ const styles = () => ({
     },
     '.page': {
       overflowY: 'auto',
-      position: 'absolute',
+      position: 'fixed',
       top: '50px',
       bottom: 0,
+      width: '100%',
+      height: '100%'
     },
     '.page-enter': {
-      opacity: 0,
-      transform: 'scale(1)',
+      opacity: 0.01,
+      transform: 'scale(1.1)',
     },
     '.page-enter-active': {
       opacity: 1,
@@ -54,8 +56,8 @@ const styles = () => ({
       transform: 'scale(1)',
     },
     '.page-exit-active': {
-      opacity: 0,
-      transform: 'scale(0.9)',
+      opacity: 0.01,
+      transform: 'scale(1.1)',
       transition: 'opacity 300ms, transform 300ms',
     },
   },

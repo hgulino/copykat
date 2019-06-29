@@ -12,7 +12,7 @@ import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import Confetti from 'react-confetti'
 
-import TooltipOverflow from '../layout/TooltipOverflow'
+import TooltipOverflow from '../layout/misc/TooltipOverflow'
 
 const styles = (theme) => ({
   paper: {
@@ -90,12 +90,20 @@ class ProjectCard extends Component {
               <Grid item>
                 <Avatar
                   className={classes.avatar}
-                  style={{
-                    '--background-start': '#974BC2',
-                    backgroundColor: '#EBC8FF',
-                    boxShadow: '0 0 0 2px #974BC2',
-                  }}>
-                  CK
+                  style={
+                    this.props.colors
+                      ? {
+                          '--background-start': this.props.colors.secondary,
+                          backgroundColor: this.props.colors.primary,
+                          boxShadow: '0 0 0 2px ' + this.props.colors.secondary,
+                        }
+                      : {
+                          '--background-start': '#fff',
+                          backgroundColor: '#fff',
+                          boxShadow: '0 0 0 2px #fff',
+                        }
+                  }>
+                  {this.props.avatar}
                 </Avatar>
               </Grid>
             </Grid>
@@ -106,7 +114,9 @@ class ProjectCard extends Component {
               justify="space-between"
               alignItems="flex-start">
               <Grid item>
-                <Typography variant="subtitle1">Client Name</Typography>
+                <Typography variant="subtitle1">
+                  {this.props.client.label ? this.props.client.label : null}
+                </Typography>
 
                 <TooltipOverflow title={this.props.name} placement="bottom">
                   <Typography

@@ -61,9 +61,10 @@ export default (state = initialState, action) => {
             name: action.project.name,
             avatar: action.project.avatar,
             colors: {
-              primary: action.project.color.primary,
-              secondary: action.project.color.secondary
+              primary: action.project.colors.primary,
+              secondary: action.project.colors.secondary,
             },
+            client: action.project.clientName,
             projectPath: action.project.projectPath,
           },
         },

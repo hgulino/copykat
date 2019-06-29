@@ -2,10 +2,12 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
-import AddIcon from '@material-ui/icons/Add'
-import ArrowBack from '@material-ui/icons/ArrowBack'
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown'
 import React, { Component } from 'react'
+import AddIcon from '@material-ui/icons/Add'
+
+import ActionButton from '../buttons/ActionButton'
+import BackButton from '../buttons/BackButton'
 
 const styles = (theme) => ({
   content: {
@@ -72,13 +74,7 @@ class PageHeader extends Component {
               <Grid container direction="row" justify="center" alignItems="center">
                 {this.props.closeProject ? (
                   <Grid item className={classes.paddingRight}>
-                    <Button
-                      variant="outlined"
-                      disableRipple
-                      classes={{ root: classes.iconButton }}
-                      onClick={this.props.closeProject.bind(this)}>
-                      <ArrowBack />
-                    </Button>
+                    <BackButton onClick={this.props.closeProject.bind(this)} />
                   </Grid>
                 ) : (
                   <div />
@@ -93,10 +89,11 @@ class PageHeader extends Component {
                   </Grid>
                 )}
                 <Grid>
-                  <Button variant="contained" className={classes.button}>
-                    <AddIcon />
-                    Add new folder
-                  </Button>
+                <ActionButton
+                    title="New template"
+                    color="primary"
+                    iconLeft={<AddIcon/>}
+                  />
                 </Grid>
               </Grid>
             </Grid>

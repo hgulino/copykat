@@ -8,6 +8,14 @@ let theme = createMuiTheme({
       fontWeight: 500,
       color: '#fff',
     },
+    h5: {
+      textAlign: 'center',
+      fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif"',
+      fontWeight: 400,
+      fontSize: 24,
+      lineHeight: 1.33,
+      letterSpacing: '0em',
+    },
     subtitle1: {
       fontSize: 14,
       color: '#CBCBCB',
@@ -18,12 +26,12 @@ let theme = createMuiTheme({
       color: '#fff',
     },
     body1: {
-      color: '#CBCBCB'
+      color: '#CBCBCB',
     },
     body2: {
       color: '#CBCBCB',
-      fontSize: 12
-    }
+      fontSize: 12,
+    },
   },
   palette: {
     primary: {
@@ -33,6 +41,10 @@ let theme = createMuiTheme({
     },
     secondary: {
       main: '#5BC85B',
+    },
+    action: {
+      primary: '#5BC85B',
+      secondary: '#1A61EF'
     },
     success: {
       main: '#5BC85B',

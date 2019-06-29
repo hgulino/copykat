@@ -47,6 +47,7 @@ app.on('ready', async () => {
     minWidth: 360,
     minHeight: 200,
     show: false,
+    icon: __dirname + '/dist-assets/icon.ico',
   })
 
   mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')))

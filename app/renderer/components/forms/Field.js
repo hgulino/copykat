@@ -2,9 +2,9 @@ import Button from '@material-ui/core/Button'
 import FormHelperText from '@material-ui/core/FormHelperText'
 import TextField from '@material-ui/core/TextField'
 import { withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 
-import PropTypes from 'prop-types';
 const styles = (theme) => ({
   main: {
     flex: 1,
@@ -82,7 +82,7 @@ Field.propTypes = {
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   value: PropTypes.any.isRequired,
-  variant: PropTypes.string
+  variant: PropTypes.string,
 }
 
 export default withStyles(styles)(Field)

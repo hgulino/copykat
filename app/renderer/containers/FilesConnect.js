@@ -1,7 +1,7 @@
 import { push } from 'connected-react-router'
 import { connect } from 'react-redux'
 
-import Files from '../components/Files'
+import Files from '../components/pages/Files'
 
 const mapStateToProps = (state) => {
   return state

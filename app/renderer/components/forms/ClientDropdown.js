@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
 import MenuItem from '@material-ui/core/MenuItem'
-import Popper from '@material-ui/core/Popper'
-import { withStyles } from '@material-ui/core/styles'
-import CreatableSelect from 'react-select/creatable'
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+import { emphasize, withStyles } from '@material-ui/core/styles'
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import Select from 'react-select'
 
 const suggestions = [
   { label: 'CAA' },
@@ -178,7 +178,6 @@ function Menu(props) {
 const components = {
   Control,
   Menu,
-  MultiValue,
   NoOptionsMessage,
   Option,
   Placeholder,
@@ -189,7 +188,6 @@ const components = {
 class ClientDropdown extends Component {
   state = {
     single: null,
-    multi: null,
   }
   handleChange = (name) => (value) => {
     this.setState({

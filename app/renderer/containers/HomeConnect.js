@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import { addNewProject, setCurrentProject, toggleCreateProjectForm } from '../actions/project'
 import { setAppMetadataPath } from '../actions/settings'
-import Home from '../components/Home'
+import Home from '../components/pages/Home'
 
 const mapStateToProps = (state) => {
   return state

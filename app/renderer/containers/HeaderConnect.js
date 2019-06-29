@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import Header from '../components/Header'
+import Header from '../components/layout/Header'
 // import { addNewProject, toggleCreateProjectForm } from '../actions/project'
 // import { setAppMetadataPath } from '../actions/settings'
 

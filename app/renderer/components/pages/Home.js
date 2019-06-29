@@ -1,21 +1,41 @@
-import Typography from '@material-ui/core/Typography'
 import Dialog from '@material-ui/core/Dialog'
 import DialogContent from '@material-ui/core/DialogContent'
 import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
 import { withStyles } from '@material-ui/core/styles'
 import React, { Component } from 'react'
+import Lottie from 'react-lottie'
+import AddIcon from '@material-ui/icons/Add'
+import LinkIcon from '@material-ui/icons/Link'
 
-import NewProjectForm from '../../containers/forms/NewProjectConnectect'
-import ProjectCard from '../cards/ProjectCardd'
-import ProjectCreateCard from '../cards/ProjectCreateCardd'
-import PageHeader from '../layout/PageHeaderr'
-import ClientDropdown from '../forms/ClientDropdown';
+import * as animationData from '../../assets/data.json'
+import CreateProjectForm from '../../containers/forms/CreateProjectConnect'
+import ActionButton from '../buttons/ActionButton'
+import ProjectCard from '../cards/ProjectCard'
+import ProjectCreateCard from '../cards/ProjectCreateCard'
+import PageHeader from '../layout/PageHeader'
 
 const shell = require('electron').shell
 
-const styles = () => ({
+const styles = (theme) => ({
   main: {
     padding: '48px 20px 20px',
+    margin: 'auto',
+    [theme.breakpoints.up('lg')]: {
+      width: 1400,
+    },
+    [theme.breakpoints.up('md')]: {
+      width: 1000,
+    },
+    [theme.breakpoints.down('md')]: {
+      width: '100%',
+    },
+  },
+  mainEmptyState: {
+    padding: '100px 20px 20px',
+  },
+  lottie: {
+    margin: '20px',
   },
   spacer: {
     position: 'relative',
@@ -26,7 +46,10 @@ const styles = () => ({
     borderStyle: 'solid',
     borderWidth: '1px',
     borderColor: '#CBCBCB',
-    borderRadius: '8px'
+    borderRadius: '8px',
+  },
+  button: {
+    margin: theme.spacing(1),
   },
 })
 
@@ -52,14 +75,67 @@ class Home extends Component {
   render() {
     const props = this.props
     const { classes } = this.props
+    const defaultOptions = {
+      loop: true,
+      autoplay: true,
+      animationData: animationData,
+    }
 
-    if (props.project.list.length == 0) {
+    if (Object.keys(props.project.list).length === 0) {
       return (
-        <div>
-          <h1>Projects</h1>
-          <p>Can't seem to find anything...</p>
-          <br />
-          <NewProjectForm />
+        <div className={classes.mainEmptyState}>
+          <Grid container justify="center">
+            <Grid container item justify="center" alignItems="center" spacing={2}>
+              <Grid item>
+                <Typography variant="h5" style={{ fontWeight: 500 }}>
+                  Can't seem to find anything...
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <Lottie
+                  className={classes.lottie}
+                  options={defaultOptions}
+                  height={300}
+                  isStopped={false}
+                  isPaused={false}
+                />
+              </Grid>
+              <Grid item>
+                <Typography variant="body1" style={{ maxWidth: 300, textAlign: 'center' }}>
+                  Create a new project or link a .copykat file to see stuff here.
+                </Typography>
+              </Grid>
+              <Grid item container justify="center">
+                <Grid item className={classes.button}>
+                  <ActionButton
+                    title="New project"
+                    color="primary"
+                    iconLeft={<AddIcon />}
+                    onClick={this.openForm.bind(this)}
+                  />
+                </Grid>
+                <Grid item className={classes.button}>
+                  <ActionButton
+                    title="Link project"
+                    color="secondary"
+                    iconLeft={<LinkIcon />}
+                    onClick={this.openForm.bind(this)}
+                  />
+                </Grid>
+              </Grid>
+
+              <Dialog
+                open={this.props.project.createProjectForm.visible}
+                onClose={this.openForm.bind(this)}>
+                <DialogContent>
+                  <Typography variant="h5">New project creation</Typography>
+                  <div className={classes.outlined}>
+                    <CreateProjectForm />
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </Grid>
+          </Grid>
         </div>
       )
     } else {
@@ -79,20 +155,27 @@ class Home extends Component {
                 <ProjectCard
                   key={key}
                   name={item.name}
+                  avatar={item.avatar}
+                  colors={item.colors}
+                  client={item.client}
                   projectPath={item.projectPath}
                   onClick={this.openProject.bind(this, item.name)}
                 />
               ))}
-              <Grid item className={classes.spacer} />
-              <Grid item className={classes.spacer} />
-              <Grid item className={classes.spacer} />
+              {projects.length > 1 ? (
+                <React.Fragment>
+                  <Grid item className={classes.spacer} />
+                  <Grid item className={classes.spacer} />
+                  <Grid item className={classes.spacer} />
+                </React.Fragment>
+              ) : null}
               <Dialog
                 open={this.props.project.createProjectForm.visible}
                 onClose={this.openForm.bind(this)}>
                 <DialogContent>
                   <Typography variant="h5">New project creation</Typography>
                   <div className={classes.outlined}>
-                    <NewProjectForm />
+                    <CreateProjectForm />
                   </div>
                 </DialogContent>
               </Dialog>

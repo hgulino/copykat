@@ -1,17 +1,15 @@
-import { placeholder } from '@babel/types'
-
-import React from 'react'
-import PropTypes from 'prop-types'
-import classNames from 'classnames'
-import Creatable from 'react-select/creatable'
-import { withStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
-import TextField from '@material-ui/core/TextField'
-import Paper from '@material-ui/core/Paper'
 import Chip from '@material-ui/core/Chip'
 import MenuItem from '@material-ui/core/MenuItem'
-import CancelIcon from '@material-ui/icons/Cancel'
+import Paper from '@material-ui/core/Paper'
+import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
+import { withStyles } from '@material-ui/core/styles'
 import { emphasize } from '@material-ui/core/styles/colorManipulator'
+import CancelIcon from '@material-ui/icons/Cancel'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
+import React from 'react'
+import Creatable from 'react-select/creatable'
 
 const suggestions = [
   { label: 'CAA' },
@@ -159,11 +157,11 @@ function Menu(props) {
   )
 }
 
-function DropdownIndicator(props) {
+function DropdownIndicator() {
   return <div />
 }
 
-function IndicatorsContainer(props) {
+function IndicatorsContainer() {
   return <div />
 }
 
@@ -180,17 +178,6 @@ const components = {
 }
 
 class IntegrationReactSelect extends React.Component {
-  state = {
-    single: null,
-    multi: null,
-  }
-
-  handleChange = (name) => (value) => {
-    this.setState({
-      [name]: value,
-    })
-  }
-
   render() {
     const { classes, theme } = this.props
 
@@ -208,7 +195,7 @@ class IntegrationReactSelect extends React.Component {
       }),
       menuList: (base) => ({
         ...base,
-        'max-height': '100px',
+        maxHeight: '100px',
       }),
     }
 
@@ -220,8 +207,8 @@ class IntegrationReactSelect extends React.Component {
           styles={selectStyles}
           options={suggestions}
           components={components}
-          value={this.state.single}
-          onChange={this.handleChange('single')}
+          value={this.props.value}
+          onChange={this.props.onChange}
           placeholder=""
         />
       </div>
@@ -231,6 +218,7 @@ class IntegrationReactSelect extends React.Component {
 
 IntegrationReactSelect.propTypes = {
   classes: PropTypes.object.isRequired,
+  onChange: PropTypes.func.isRequired,
   theme: PropTypes.object.isRequired,
 }
 

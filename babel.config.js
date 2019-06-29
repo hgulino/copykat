@@ -13,5 +13,16 @@ module.exports = {
   plugins: [
     ['@babel/plugin-proposal-decorators', { legacy: true }],
     ['@babel/plugin-proposal-class-properties', { loose: true }],
+    [
+      'file-loader',
+      {
+        name: '[hash].[ext]',
+        extensions: ['png', 'jpg', 'jpeg', 'gif', 'svg', 'flr'],
+        publicPath: '/public',
+        outputPath: '/public',
+        context: '',
+        limit: 0,
+      },
+    ],
   ],
 }

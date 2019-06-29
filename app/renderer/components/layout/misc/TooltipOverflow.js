@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
-import ArrowTooltip from './misc/ArrowTooltip'
+import ArrowTooltip from './ArrowTooltip'
 
 function isTextOverflow(element) {
   return element.clientWidth < element.scrollWidth
