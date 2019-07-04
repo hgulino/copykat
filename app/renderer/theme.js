@@ -9,7 +9,7 @@ let theme = createMuiTheme({
       color: '#fff',
     },
     h5: {
-      textAlign: 'center',
+      // textAlign: 'center',
       fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif"',
       fontWeight: 400,
       fontSize: 24,

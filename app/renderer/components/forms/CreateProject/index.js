@@ -1,25 +1,39 @@
-import { Avatar, Grid } from '@material-ui/core'
-import Button from '@material-ui/core/Button'
+import { Grid } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
-import FolderIcon from '@material-ui/icons/Folder'
-import convert from 'color-convert'
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import { SliderPicker } from 'react-color'
 
 import { formattedFileName } from '../../../utils'
 import validateInput from '../../../utils/validations/createProjectForm'
 import Field from '../Field'
 import ReactSelect from '../ReactSelect'
+import ColorSlider from '../ColorSlider'
+import PathDialog from '../PathDialog'
+import Typography from '@material-ui/core/Typography'
+
+import ActionButton from '../../buttons/ActionButton'
 
 const { dialog } = require('electron').remote
 
 const styles = () => ({
+  form: {},
+  title: {
+    margin: '30px 20px 30px',
+  },
   rightIcon: {
     marginRight: '8px',
   },
-  colorSlider: {
-    width: 100,
+  colorSlider: {},
+  outlined: {
+    padding: '20px',
+    margin: '0px 20px 30px 20px',
+    borderStyle: 'solid',
+    borderWidth: '1px',
+    borderColor: '#CBCBCB',
+    borderRadius: '8px',
+  },
+  demo: {
+    // minWidth: '400px',
   },
 })
 
@@ -38,10 +52,10 @@ class NewProjectForm extends Component {
     super(props)
     this.state = {
       name: '',
-      color: '#16BEFD',
+      color: '#006999',
       colors: {
-        primary: '#16BEFD',
-        secondary: '#16BEFD',
+        primary: '#66cffd',
+        secondary: '#006999',
       },
       avatar: 'CK',
       projectPath: this.props.settings.metadataPath ? this.props.settings.metadataPath : '',
@@ -95,77 +109,84 @@ class NewProjectForm extends Component {
   }
 
   handleChangeComplete = (color) => {
-    console.log(color.hex)
     this.setState({
       color: color.hex,
       colors: {
-        primary: 'hsl(' + convert.hsl.hex(color.hex) + ', 100%, 70%)',
-        secondary: 'hsl(' + convert.hsl.hex(color.hex) + ', 100%, 30%)',
+        primary: 'hsl(' + color.hsl.h + ', 100%, 85%)',
+        secondary: 'hsl(' + color.hsl.h + ', 100%, 30%)',
       },
     })
   }
 
   render() {
     const { classes } = this.props
-    const { errors, name, projectPath } = this.state
-    const hsl = convert.hsl.hex(this.state.color)
-    console.log(hsl)
+    const { errors, name, projectPath, colors } = this.state
+
     return (
-      <form onSubmit={this.onSubmit}>
-        <Grid container>
-          <Grid item xs={6}>
-            <Field
-              id={'name'}
-              type={'text'}
-              label={'Project name'}
-              value={formattedFileName(name)}
-              onChange={this.onChange}
-              error={errors.name}
-              helperText={'A unique name for your project'}
-            />
-          </Grid>
-          <Grid item xs={6}>
-            <ReactSelect value={this.state.clientName} onChange={this.onChangeSelect} />
-          </Grid>
-          <Grid item>
-            <Avatar
-              style={{
-                height: '50px',
-                width: '50px',
-                fontSize: '24px',
-                fontWeight: 500,
-                color: 'hsl(' + hsl + ', 100%, 30%)',
-                backgroundColor: 'hsl(' + hsl + ', 100%, 70%)',
-                boxShadow: '0 0 0 2px hsl(' + hsl + ', 100%, 30%)',
-              }}>
-              {this.state.avatar}
-            </Avatar>
-          </Grid>
-          <Grid item>
-            <Field
-              id={'projectPath'}
-              type={'dialog'}
-              variant={'outlined'}
-              label={'Project path'}
-              value={projectPath}
-              onChange={this.onChange}
-              error={errors.projectPath}
-              helperText={'The local directory for your project'}>
-              <FolderIcon className={classes.rightIcon} />
-            </Field>
-          </Grid>
-          <Grid item>
-            <SliderPicker
-              className={classes.colorSlider}
-              color={this.state.color}
-              onChangeComplete={this.handleChangeComplete}
-            />
-          </Grid>
-          <Grid>
-            <Button type="submit">Create new project</Button>
-          </Grid>
-        </Grid>
-      </form>
+      <div className={classes.form}>
+        <Typography variant="h5" className={classes.title}>
+          New project
+        </Typography>
+        <div className={classes.outlined}>
+          <form onSubmit={this.onSubmit}>
+            <Grid container direction="row" spacing={2}>
+              <Grid container item direction="column" xs={12} md={6}>
+                <Grid item>
+                  <Field
+                    id={'name'}
+                    type={'text'}
+                    label={'Project name'}
+                    value={formattedFileName(name)}
+                    onChange={this.onChange}
+                    error={errors.name}
+                    helperText={'A unique name for your project'}
+                  />
+                </Grid>
+                <Grid item>
+                  <ReactSelect value={this.state.clientName} onChange={this.onChangeSelect} />
+                </Grid>
+                <Grid item>
+                  <Field
+                    id={'color'}
+                    type={'text'}
+                    label={'Color'}
+                    value={this.state.color}
+                    onChange={this.onChange}
+                    error={errors.color}
+                  />
+                </Grid>
+              </Grid>
+              <Grid container item direction="column" className={classes.demo} xs={12} md={6} spacing={2}>
+                <ColorSlider
+                  color={this.state.color}
+                  onChange={this.handleChangeComplete}
+                  avatar={this.state.avatar}
+                  colors={this.state.colors}
+                  name={this.state.name}
+                  path={this.state.projectPath + '\\' + this.state.name}
+                  client={this.state.clientName}
+                />
+                <Grid item>
+                  <ActionButton type="submit" title="Create new project" />
+                </Grid>
+              </Grid>
+            </Grid>
+
+            {/* <Grid item>
+          <PathDialog
+            id={'projectPath'}
+            type={'dialog'}
+            variant={'outlined'}
+            label={'Project path'}
+            value={projectPath}
+            onChange={this.onChange}
+            error={errors.projectPath}
+            helperText={'The local directory for your project'}
+          />
+        </Grid> */}
+          </form>
+        </div>
+      </div>
     )
   }
 }

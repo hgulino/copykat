@@ -1,6 +1,7 @@
 import Button from '@material-ui/core/Button'
 import { withStyles } from '@material-ui/core/styles'
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import theme from '../../theme'
 
 const styles = () => ({
@@ -36,6 +37,7 @@ class ActionButton extends Component {
     return (
       <Button
         variant="contained"
+        type={this.props.type}
         className={this.props.color === 'primary' ? classes.primary : classes.secondary}
         onClick={this.props.onClick}>
         {this.props.iconLeft}
@@ -44,6 +46,15 @@ class ActionButton extends Component {
       </Button>
     )
   }
+}
+
+ActionButton.propTypes = {
+  color: PropTypes.any,
+  iconLeft: PropTypes.any,
+  iconRight: PropTypes.any,
+  onClick: PropTypes.any,
+  title: PropTypes.any,
+  type: PropTypes.any,
 }
 
 export default withStyles(styles)(ActionButton)

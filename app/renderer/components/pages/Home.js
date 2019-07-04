@@ -21,10 +21,10 @@ const styles = (theme) => ({
   main: {
     padding: '48px 20px 20px',
     margin: 'auto',
-    [theme.breakpoints.up('lg')]: {
+    [theme.breakpoints.only('xl')]: {
       width: 1400,
     },
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.down('lg')]: {
       width: 1000,
     },
     [theme.breakpoints.down('md')]: {
@@ -41,13 +41,7 @@ const styles = (theme) => ({
     position: 'relative',
     width: 316,
   },
-  outlined: {
-    padding: '20px',
-    borderStyle: 'solid',
-    borderWidth: '1px',
-    borderColor: '#CBCBCB',
-    borderRadius: '8px',
-  },
+
   button: {
     margin: theme.spacing(1),
   },
@@ -126,12 +120,11 @@ class Home extends Component {
 
               <Dialog
                 open={this.props.project.createProjectForm.visible}
-                onClose={this.openForm.bind(this)}>
+                onClose={this.openForm.bind(this)}
+                maxWidth={'xl'}
+                scroll={'body'}>
                 <DialogContent>
-                  <Typography variant="h5">New project creation</Typography>
-                  <div className={classes.outlined}>
-                    <CreateProjectForm />
-                  </div>
+                  <CreateProjectForm />
                 </DialogContent>
               </Dialog>
             </Grid>
@@ -171,12 +164,11 @@ class Home extends Component {
               ) : null}
               <Dialog
                 open={this.props.project.createProjectForm.visible}
-                onClose={this.openForm.bind(this)}>
+                onClose={this.openForm.bind(this)}
+                maxWidth={'xl'}
+                scroll={'body'}>
                 <DialogContent>
-                  <Typography variant="h5">New project creation</Typography>
-                  <div className={classes.outlined}>
-                    <CreateProjectForm />
-                  </div>
+                  <CreateProjectForm />
                 </DialogContent>
               </Dialog>
             </Grid>

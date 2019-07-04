@@ -24,9 +24,9 @@ const suggestions = [
 const styles = (theme) => ({
   root: {
     flexGrow: 1,
-    height: 250,
+    // height: 250,
     marginTop: 16,
-    marginBottom: 8,
+    marginBottom: 8
   },
   input: {
     display: 'flex',
@@ -62,7 +62,7 @@ const styles = (theme) => ({
   },
   paper: {
     position: 'absolute',
-    zIndex: 1,
+    zIndex: 100,
     marginTop: theme.spacing(1),
     left: 0,
     right: 0,
