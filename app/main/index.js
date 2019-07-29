@@ -6,6 +6,8 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 let mainWindow = null
 let forceQuit = false
 
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer')
   const extensions = ['REACT_DEVELOPER_TOOLS', 'REDUX_DEVTOOLS']

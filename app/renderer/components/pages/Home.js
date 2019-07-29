@@ -7,6 +7,7 @@ import React, { Component } from 'react'
 import Lottie from 'react-lottie'
 import AddIcon from '@material-ui/icons/Add'
 import LinkIcon from '@material-ui/icons/Link'
+import Slide from '@material-ui/core/Slide'
 
 import * as animationData from '../../assets/data.json'
 import CreateProjectForm from '../../containers/forms/CreateProjectConnect'
@@ -45,6 +46,10 @@ const styles = (theme) => ({
   button: {
     margin: theme.spacing(1),
   },
+})
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />
 })
 
 class Home extends Component {
@@ -120,6 +125,7 @@ class Home extends Component {
 
               <Dialog
                 open={this.props.project.createProjectForm.visible}
+                TransitionComponent={Transition}
                 onClose={this.openForm.bind(this)}
                 maxWidth={'xl'}
                 scroll={'body'}>
@@ -164,6 +170,7 @@ class Home extends Component {
               ) : null}
               <Dialog
                 open={this.props.project.createProjectForm.visible}
+                TransitionComponent={Transition}
                 onClose={this.openForm.bind(this)}
                 maxWidth={'xl'}
                 scroll={'body'}>

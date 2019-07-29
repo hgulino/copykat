@@ -7,6 +7,7 @@ let theme = createMuiTheme({
       fontSize: 28,
       fontWeight: 500,
       color: '#fff',
+      userSelect: 'none',
     },
     h5: {
       // textAlign: 'center',
@@ -15,22 +16,27 @@ let theme = createMuiTheme({
       fontSize: 24,
       lineHeight: 1.33,
       letterSpacing: '0em',
+      userSelect: 'none',
     },
     subtitle1: {
       fontSize: 14,
       color: '#CBCBCB',
+      userSelect: 'none',
     },
     subtitle2: {
       fontSize: 14,
       fontWeight: 400,
       color: '#fff',
+      userSelect: 'none',
     },
     body1: {
       color: '#CBCBCB',
+      userSelect: 'none',
     },
     body2: {
       color: '#CBCBCB',
       fontSize: 12,
+      userSelect: 'none',
     },
   },
   palette: {
@@ -44,7 +50,7 @@ let theme = createMuiTheme({
     },
     action: {
       primary: '#5BC85B',
-      secondary: '#1A61EF'
+      secondary: '#1A61EF',
     },
     success: {
       main: '#5BC85B',
@@ -78,9 +84,9 @@ theme = {
         textTransform: 'initial',
       },
       contained: {
-        boxShadow: 'none',
+        // boxShadow: 'none',
         '&:active': {
-          boxShadow: 'none',
+          // boxShadow: 'none',
         },
       },
     },
