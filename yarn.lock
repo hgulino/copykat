@@ -1888,10 +1888,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.4.tgz#46832183115c904410c275e34cf9403992999c32"
   integrity sha512-j8YL2C0fXq7IONwl/Ud5Kt0PeXw22zGERt+HSSnwbKOJVsAGkEz3sFCYwaF9IOuoG1HOtE0vKCj6sXF7Q0+Vaw==
 
-"@types/node@^8.0.24":
-  version "8.10.47"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-8.10.47.tgz#e19b2f50f68697013db9e8abb5ad3ddc30faaa0b"
-  integrity sha512-HshJQ2myCc05qYuR99HvJRK5rWOPwKLumVDrpizY58OJUVEgRwd7RtxqDOOi350VGxFI8hrCtjR7IaDfo0S12Q==
+"@types/node@^10.12.18":
+  version "10.14.14"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-10.14.14.tgz#a47955df2acf76ba7f0ac3b205d325da193dc9ad"
+  integrity sha512-xXD08vZsvpv4xptQXj1+ky22f7ZoKu5ZNI/4l+/BXG3X+XaeZsmaFbbTKuhSE3NjjvRuZFxFf9sQBMXIcZNFMQ==
 
 "@types/prop-types@*":
   version "15.7.1"
@@ -5194,12 +5194,12 @@ electron-to-chromium@^1.3.124:
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.125.tgz#dbde0e95e64ebe322db0eca764d951f885a5aff2"
   integrity sha512-XxowpqQxJ4nDwUXHtVtmEhRqBpm2OnjBomZmZtHD0d2Eo0244+Ojezhk3sD/MBSSe2nxCdGQFRXHIsf/LUTL9A==
 
-electron@^3.0.0:
-  version "3.1.8"
-  resolved "https://registry.yarnpkg.com/electron/-/electron-3.1.8.tgz#01b0b147dfcca47967ff07dbf72bf5e96125a2ac"
-  integrity sha512-1MiFoMzxGaR0wDfwFE5Ydnuk6ry/4lKgF0c+NFyEItxM/WyEHNZPNjJAeKJ+M/0sevmZ+6W4syNZnQL5M3GgsQ==
+electron@^5.0.0:
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/electron/-/electron-5.0.8.tgz#b240726ce9e3510d3af30a981486c9850462c718"
+  integrity sha512-wkUVE2GaYCsqQTsISSHWkIkcdpwLwZ1jhzAXSFFoSzsTgugmzhX60rJjIccotUmZ0iPzw+u4ahfcaJ0eslrPNQ==
   dependencies:
-    "@types/node" "^8.0.24"
+    "@types/node" "^10.12.18"
     electron-download "^4.1.0"
     extract-zip "^1.0.3"
 

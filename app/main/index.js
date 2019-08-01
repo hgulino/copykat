@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV === 'development'
 let mainWindow = null
 let forceQuit = false
 
-process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true';
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = 'true'
 
 const installExtensions = async () => {
   const installer = require('electron-devtools-installer')
@@ -39,9 +39,7 @@ app.on('window-all-closed', () => {
 app.disableHardwareAcceleration()
 
 app.on('ready', async () => {
-  if (isDevelopment) {
-    await installExtensions()
-  }
+
 
   mainWindow = new BrowserWindow({
     width: 1000,
@@ -50,7 +48,14 @@ app.on('ready', async () => {
     minHeight: 200,
     show: false,
     icon: __dirname + '/dist-assets/icon.ico',
+    webPreferences: {
+      nodeIntegration: true,
+    },
   })
+
+  if (isDevelopment) {
+
+  }
 
   mainWindow.loadFile(path.resolve(path.join(__dirname, '../renderer/index.html')))
 
@@ -87,6 +92,7 @@ app.on('ready', async () => {
   })
 
   if (isDevelopment) {
+    await installExtensions()
     // auto-open dev tools
     mainWindow.webContents.openDevTools()
 
@@ -102,4 +108,5 @@ app.on('ready', async () => {
       ]).popup(mainWindow)
     })
   }
+
 })
