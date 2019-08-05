@@ -1,11 +1,12 @@
 # CopyKat
+
 <p align="center">
   <img src="internals/img/copykat-banner.png" width="100%"/>
 </p>
 
-A project's file structure can be difficult to maintain. Especially when everything always ends up clumped together and permanetly saved to the Desktop and Downloads folders.
+A project's file structure can be difficult to maintain. Especially when everything always ends up clumped together and permanetly saved to the Desktop and Downloads folder.
 
-[CopyKat](https://github.com/hgulino/copykat) is a localized project management system, kaban board, and timesheet built on [Electron](https://github.com/electron/electron) that helps freelancers organize their desktop and streamline mundane tasks. 
+`CopyKat` is a localized project management system, kaban board, and timesheet built on [Electron](https://github.com/electron/electron) that helps freelancers organize their desktop and streamline mundane tasks.
 
 <!-- **👩🏻‍💻 Developer Ready**: A comprehensive JavaScript testing solution. Works out of the box for most JavaScript projects.
 
@@ -21,18 +22,19 @@ A project's file structure can be difficult to maintain. Especially when everyth
   <img src="internals/img/cat-sleeping.gif" width="400"/>
 </div>
 
-
 ## Features
 
 ### Project list
-Since we're primarily dealing with local files, it's important to understand that `Projects` are just regular system folders. `Projects` are organized at a top level grid list which can be sorted by `name`, `status`, or even `client`. One major difference between `Projects` and system folders is that they contain files and folders (or references to them) 
+
+Since we're primarily dealing with local files, it's important to understand that `Projects` are just regular system folders. `Projects` are organized at a top level grid list which can be sorted by `name`, `status`, or even `client`. One major difference between `Projects` and system folders is that they contain files and folders (or references to them)
 
 ### Project templates
+
 `Projects` can be copied into `Templates` which allow users to customize a structure that fits a particular workflow. `Templates` that help generate common folder structures and can copy files and name them according to the `Project` name.
 
 ### Copy template files
 
-Simply define what files a particular `Template` 
+Simply define what files a particular `Template`
 
 <!-- ## Install
 
