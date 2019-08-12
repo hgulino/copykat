@@ -9,8 +9,7 @@ const productionPlugins = [
 
   // babel-preset-react-optimize
   require('@babel/plugin-transform-react-constant-elements'),
-  require('@babel/plugin-transform-react-inline-elements'),
-  require('babel-plugin-transform-react-remove-prop-types')
+  require('@babel/plugin-transform-react-inline-elements')
 ];
 
 module.exports = api => {
@@ -27,7 +26,6 @@ module.exports = api => {
           useBuiltIns: 'usage'
         }
       ],
-      require('@babel/preset-flow'),
       [require('@babel/preset-react'), { development }]
     ],
     plugins: [
