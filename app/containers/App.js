@@ -1,13 +1,22 @@
-import * as React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { MuiThemeProvider } from '@material-ui/core/styles';
 
-export default class App extends React.Component {
+import theme from '../theme';
+
+export default class App extends Component {
   static propTypes = {
     children: PropTypes.element.isRequired
   };
 
   render() {
     const { children } = this.props;
-    return <React.Fragment>{children}</React.Fragment>;
+    return (
+      <MuiThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </MuiThemeProvider>
+    );
   }
 }
