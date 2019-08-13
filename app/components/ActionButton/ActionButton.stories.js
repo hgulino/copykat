@@ -6,14 +6,8 @@ import LinkIcon from '@material-ui/icons/Link';
 import ActionButton from './index';
 import theme from '../../theme';
 
-export const defaultProps = {
-  title: 'New Template',
-  iconLeft: <AddIcon />
-};
-
-export const rightIconProps = {
-  title: 'New Template',
-  iconRight: <LinkIcon />
+const defaultProps = {
+  title: 'New Template'
 };
 
 storiesOf('ActionButton', module)
@@ -24,13 +18,35 @@ storiesOf('ActionButton', module)
       <ActionButton color="secondary" {...defaultProps} />
     </Fragment>
   ))
-  .add('icon right', () => <ActionButton color="primary" {...rightIconProps} />)
+  .add('icons', () => (
+    <Fragment>
+      <ActionButton color="primary" iconRight={<AddIcon />} {...defaultProps} />
+      <ActionButton
+        color="secondary"
+        iconLeft={<LinkIcon />}
+        {...defaultProps}
+      />
+    </Fragment>
+  ))
   .add('disabled', () => (
-    <ActionButton color="primary" disabled {...defaultProps} />
+    <Fragment>
+      <ActionButton
+        color="primary"
+        iconLeft={<AddIcon />}
+        disabled
+        {...defaultProps}
+      />
+      <ActionButton color="primary" disabled {...defaultProps} />
+    </Fragment>
   ))
   .add('loading', () => (
     <Fragment>
-      <ActionButton color="primary" loading {...defaultProps} />
+      <ActionButton
+        color="primary"
+        iconLeft={<AddIcon />}
+        loading
+        {...defaultProps}
+      />
       <ActionButton color="secondary" loading {...defaultProps} />
     </Fragment>
   ));

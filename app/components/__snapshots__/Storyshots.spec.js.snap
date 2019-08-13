@@ -3,13 +3,13 @@
 exports[`Storyshots ActionButton color 1`] = `
 <div>
   <div
-    className="makeStyles-root-41"
+    className="makeStyles-root-32"
   >
     <div
-      className="makeStyles-wrapper-44"
+      className="makeStyles-wrapper-35"
     >
       <button
-        className="MuiButtonBase-root MuiButton-root makeStyles-button-43 makeStyles-button-47 MuiButton-contained"
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-34 makeStyles-button-38 MuiButton-contained"
         disabled={false}
         onBlur={[Function]}
         onClick={null}
@@ -29,19 +29,8 @@ exports[`Storyshots ActionButton color 1`] = `
         <span
           className="MuiButton-label"
         >
-          <svg
-            aria-hidden="true"
-            className="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-            />
-          </svg>
           <span
-            className="makeStyles-title-42 makeStyles-title-46"
+            className="makeStyles-title-33 makeStyles-title-37"
           >
             New Template
           </span>
@@ -53,13 +42,13 @@ exports[`Storyshots ActionButton color 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-root-41"
+    className="makeStyles-root-32"
   >
     <div
-      className="makeStyles-wrapper-44"
+      className="makeStyles-wrapper-35"
     >
       <button
-        className="MuiButtonBase-root MuiButton-root makeStyles-button-43 makeStyles-button-89 MuiButton-contained"
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-34 makeStyles-button-71 MuiButton-contained"
         disabled={false}
         onBlur={[Function]}
         onClick={null}
@@ -79,19 +68,8 @@ exports[`Storyshots ActionButton color 1`] = `
         <span
           className="MuiButton-label"
         >
-          <svg
-            aria-hidden="true"
-            className="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-            />
-          </svg>
           <span
-            className="makeStyles-title-42 makeStyles-title-88"
+            className="makeStyles-title-33 makeStyles-title-70"
           >
             New Template
           </span>
@@ -108,13 +86,13 @@ exports[`Storyshots ActionButton color 1`] = `
 exports[`Storyshots ActionButton disabled 1`] = `
 <div>
   <div
-    className="makeStyles-root-212"
+    className="makeStyles-root-203"
   >
     <div
-      className="makeStyles-wrapper-215"
+      className="makeStyles-wrapper-206"
     >
       <button
-        className="MuiButtonBase-root MuiButton-root makeStyles-button-214 makeStyles-button-218 MuiButton-contained Mui-disabled Mui-disabled"
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-205 makeStyles-button-209 MuiButton-contained Mui-disabled Mui-disabled"
         disabled={true}
         onBlur={[Function]}
         onClick={null}
@@ -146,7 +124,43 @@ exports[`Storyshots ActionButton disabled 1`] = `
             />
           </svg>
           <span
-            className="makeStyles-title-213 makeStyles-title-217"
+            className="makeStyles-title-204 makeStyles-title-208"
+          >
+            New Template
+          </span>
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    className="makeStyles-root-203"
+  >
+    <div
+      className="makeStyles-wrapper-206"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-205 makeStyles-button-241 MuiButton-contained Mui-disabled Mui-disabled"
+        disabled={true}
+        onBlur={[Function]}
+        onClick={null}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={-1}
+        type={null}
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <span
+            className="makeStyles-title-204 makeStyles-title-240"
           >
             New Template
           </span>
@@ -157,16 +171,16 @@ exports[`Storyshots ActionButton disabled 1`] = `
 </div>
 `;
 
-exports[`Storyshots ActionButton icon right 1`] = `
+exports[`Storyshots ActionButton icons 1`] = `
 <div>
   <div
-    className="makeStyles-root-128"
+    className="makeStyles-root-113"
   >
     <div
-      className="makeStyles-wrapper-131"
+      className="makeStyles-wrapper-116"
     >
       <button
-        className="MuiButtonBase-root MuiButton-root makeStyles-button-130 makeStyles-button-134 MuiButton-contained"
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-115 makeStyles-button-119 MuiButton-contained"
         disabled={false}
         onBlur={[Function]}
         onClick={null}
@@ -187,7 +201,7 @@ exports[`Storyshots ActionButton icon right 1`] = `
           className="MuiButton-label"
         >
           <span
-            className="makeStyles-title-129 makeStyles-title-133"
+            className="makeStyles-title-114 makeStyles-title-118"
           >
             New Template
           </span>
@@ -199,9 +213,59 @@ exports[`Storyshots ActionButton icon right 1`] = `
             viewBox="0 0 24 24"
           >
             <path
+              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+            />
+          </svg>
+        </span>
+        <span
+          className="MuiTouchRipple-root"
+        />
+      </button>
+    </div>
+  </div>
+  <div
+    className="makeStyles-root-113"
+  >
+    <div
+      className="makeStyles-wrapper-116"
+    >
+      <button
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-115 makeStyles-button-161 MuiButton-contained"
+        disabled={false}
+        onBlur={[Function]}
+        onClick={null}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex={0}
+        type={null}
+      >
+        <span
+          className="MuiButton-label"
+        >
+          <svg
+            aria-hidden="true"
+            className="MuiSvgIcon-root"
+            focusable="false"
+            role="presentation"
+            viewBox="0 0 24 24"
+          >
+            <path
               d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"
             />
           </svg>
+          <span
+            className="makeStyles-title-114 makeStyles-title-160"
+          >
+            New Template
+          </span>
         </span>
         <span
           className="MuiTouchRipple-root"
@@ -215,13 +279,13 @@ exports[`Storyshots ActionButton icon right 1`] = `
 exports[`Storyshots ActionButton loading 1`] = `
 <div>
   <div
-    className="makeStyles-root-301"
+    className="makeStyles-root-295"
   >
     <div
-      className="makeStyles-wrapper-304"
+      className="makeStyles-wrapper-298"
     >
       <button
-        className="MuiButtonBase-root MuiButton-root makeStyles-button-303 makeStyles-button-307 MuiButton-contained Mui-disabled Mui-disabled"
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-297 makeStyles-button-301 MuiButton-contained Mui-disabled Mui-disabled"
         disabled={true}
         onBlur={[Function]}
         onClick={null}
@@ -253,14 +317,14 @@ exports[`Storyshots ActionButton loading 1`] = `
             />
           </svg>
           <span
-            className="makeStyles-title-302 makeStyles-title-306"
+            className="makeStyles-title-296 makeStyles-title-300"
           >
             New Template
           </span>
         </span>
       </button>
       <div
-        className="MuiCircularProgress-root makeStyles-buttonProgress-305 makeStyles-buttonProgress-308 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        className="MuiCircularProgress-root makeStyles-buttonProgress-299 makeStyles-buttonProgress-302 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style={
           Object {
@@ -287,13 +351,13 @@ exports[`Storyshots ActionButton loading 1`] = `
     </div>
   </div>
   <div
-    className="makeStyles-root-301"
+    className="makeStyles-root-295"
   >
     <div
-      className="makeStyles-wrapper-304"
+      className="makeStyles-wrapper-298"
     >
       <button
-        className="MuiButtonBase-root MuiButton-root makeStyles-button-303 makeStyles-button-351 MuiButton-contained Mui-disabled Mui-disabled"
+        className="MuiButtonBase-root MuiButton-root makeStyles-button-297 makeStyles-button-345 MuiButton-contained Mui-disabled Mui-disabled"
         disabled={true}
         onBlur={[Function]}
         onClick={null}
@@ -313,26 +377,15 @@ exports[`Storyshots ActionButton loading 1`] = `
         <span
           className="MuiButton-label"
         >
-          <svg
-            aria-hidden="true"
-            className="MuiSvgIcon-root"
-            focusable="false"
-            role="presentation"
-            viewBox="0 0 24 24"
-          >
-            <path
-              d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
-            />
-          </svg>
           <span
-            className="makeStyles-title-302 makeStyles-title-350"
+            className="makeStyles-title-296 makeStyles-title-344"
           >
             New Template
           </span>
         </span>
       </button>
       <div
-        className="MuiCircularProgress-root makeStyles-buttonProgress-305 makeStyles-buttonProgress-352 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
+        className="MuiCircularProgress-root makeStyles-buttonProgress-299 makeStyles-buttonProgress-346 MuiCircularProgress-colorPrimary MuiCircularProgress-indeterminate"
         role="progressbar"
         style={
           Object {
