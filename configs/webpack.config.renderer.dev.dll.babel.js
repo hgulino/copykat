@@ -4,12 +4,12 @@
  * Builds the DLL for development electron renderer process
  */
 
-import webpack from 'webpack';
-import path from 'path';
 import merge from 'webpack-merge';
-import baseConfig from './webpack.config.base';
+import path from 'path';
+import webpack from 'webpack';
 import { dependencies } from '../package.json';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
+import baseConfig from './webpack.config.base';
 
 CheckNodeEnv('development');
 
@@ -20,32 +20,30 @@ export default merge.smart(baseConfig, {
 
   devtool: 'eval',
 
-  mode: 'development',
-
-  target: 'electron-renderer',
+  entry: {
+    renderer: Object.keys(dependencies || {})
+  },
 
   externals: ['fsevents', 'crypto-browserify'],
+
+  mode: 'development',
 
   /**
    * Use `module` from `webpack.config.renderer.dev.js`
    */
   module: require('./webpack.config.renderer.dev.babel').default.module,
 
-  entry: {
-    renderer: Object.keys(dependencies || {})
-  },
-
   output: {
-    library: 'renderer',
-    path: dist,
     filename: '[name].dev.dll.js',
-    libraryTarget: 'var'
+    library: 'renderer',
+    libraryTarget: 'var',
+    path: dist
   },
 
   plugins: [
     new webpack.DllPlugin({
-      path: path.join(dist, '[name].json'),
-      name: '[name]'
+      name: '[name]',
+      path: path.join(dist, '[name].json')
     }),
 
     /**
@@ -70,5 +68,7 @@ export default merge.smart(baseConfig, {
         }
       }
     })
-  ]
+  ],
+
+  target: 'electron-renderer'
 });

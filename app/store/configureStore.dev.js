@@ -1,8 +1,8 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import { applyMiddleware, compose, createStore } from 'redux';
 import { createHashHistory } from 'history';
-import { routerMiddleware, routerActions } from 'connected-react-router';
 import { createLogger } from 'redux-logger';
+import { routerActions, routerMiddleware } from 'connected-react-router';
+import thunk from 'redux-thunk';
 import createRootReducer from '../reducers';
 import * as counterActions from '../actions/counter';
 
@@ -20,8 +20,8 @@ const configureStore = initialState => {
 
   // Logging Middleware
   const logger = createLogger({
-    level: 'info',
-    collapsed: true
+    collapsed: true,
+    level: 'info'
   });
 
   // Skip redux logs in console during the tests

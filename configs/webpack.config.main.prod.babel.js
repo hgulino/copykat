@@ -2,11 +2,11 @@
  * Webpack config for production electron main process
  */
 
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import TerserPlugin from 'terser-webpack-plugin';
+import merge from 'webpack-merge';
 import path from 'path';
 import webpack from 'webpack';
-import merge from 'webpack-merge';
-import TerserPlugin from 'terser-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 
@@ -15,15 +15,13 @@ CheckNodeEnv('production');
 export default merge.smart(baseConfig, {
   devtool: 'source-map',
 
-  mode: 'production',
-
-  target: 'electron-main',
-
   entry: './app/main.dev',
 
-  output: {
-    path: path.join(__dirname, '..'),
-    filename: './app/main.prod.js'
+  mode: 'production',
+
+  node: {
+    __dirname: false,
+    __filename: false
   },
 
   optimization: {
@@ -31,11 +29,16 @@ export default merge.smart(baseConfig, {
       ? []
       : [
           new TerserPlugin({
+            cache: true,
             parallel: true,
-            sourceMap: true,
-            cache: true
+            sourceMap: true
           })
         ]
+  },
+
+  output: {
+    filename: './app/main.prod.js',
+    path: path.join(__dirname, '..')
   },
 
   plugins: [
@@ -55,8 +58,8 @@ export default merge.smart(baseConfig, {
      * development checks
      */
     new webpack.EnvironmentPlugin({
-      NODE_ENV: 'production',
       DEBUG_PROD: false,
+      NODE_ENV: 'production',
       START_MINIMIZED: false
     })
   ],
@@ -66,8 +69,5 @@ export default merge.smart(baseConfig, {
    * If you run the bundle in node.js it falls back to these values of node.js.
    * https://github.com/webpack/webpack/issues/2010
    */
-  node: {
-    __dirname: false,
-    __filename: false
-  }
+  target: 'electron-main'
 });

@@ -7,12 +7,12 @@
  * https://webpack.js.org/concepts/hot-module-replacement/
  */
 
-import path from 'path';
-import fs from 'fs';
-import webpack from 'webpack';
+import { execSync, spawn } from 'child_process';
 import chalk from 'chalk';
+import fs from 'fs';
 import merge from 'webpack-merge';
-import { spawn, execSync } from 'child_process';
+import path from 'path';
+import webpack from 'webpack';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 
@@ -39,11 +39,41 @@ if (!requiredByDLLConfig && !(fs.existsSync(dll) && fs.existsSync(manifest))) {
 }
 
 export default merge.smart(baseConfig, {
+  devServer: {
+    before() {
+      if (process.env.START_HOT) {
+        console.log('Starting Main Process...');
+        spawn('npm', ['run', 'start-main-dev'], {
+          env: process.env,
+          shell: true,
+          stdio: 'inherit'
+        })
+          .on('close', code => process.exit(code))
+          .on('error', spawnError => console.error(spawnError));
+      }
+    },
+    compress: true,
+    contentBase: path.join(__dirname, 'dist'),
+    headers: { 'Access-Control-Allow-Origin': '*' },
+    historyApiFallback: {
+      disableDotRule: false,
+      verbose: true
+    },
+    hot: true,
+    inline: true,
+    lazy: false,
+    noInfo: false,
+    port,
+    publicPath,
+    stats: 'errors-only',
+    watchOptions: {
+      aggregateTimeout: 300,
+      ignored: /node_modules/,
+      poll: 100
+    }
+  },
+
   devtool: 'inline-source-map',
-
-  mode: 'development',
-
-  target: 'electron-renderer',
 
   entry: [
     ...(process.env.PLAIN_HMR ? [] : ['react-hot-loader/patch']),
@@ -52,16 +82,13 @@ export default merge.smart(baseConfig, {
     require.resolve('../app/index')
   ],
 
-  output: {
-    publicPath: `http://localhost:${port}/dist/`,
-    filename: 'renderer.dev.js'
-  },
+  mode: 'development',
 
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
         exclude: /node_modules/,
+        test: /\.jsx?$/,
         use: {
           loader: 'babel-loader',
           options: {
@@ -92,10 +119,10 @@ export default merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              sourceMap: true,
               importLoaders: 1,
-              localIdentName: '[name]__[local]__[hash:base64:5]'
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+              modules: true,
+              sourceMap: true
             }
           }
         ]
@@ -128,10 +155,10 @@ export default merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
-              sourceMap: true,
               importLoaders: 1,
-              localIdentName: '[name]__[local]__[hash:base64:5]'
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+              modules: true,
+              sourceMap: true
             }
           },
           {
@@ -196,6 +223,16 @@ export default merge.smart(baseConfig, {
     ]
   },
 
+  node: {
+    __dirname: false,
+    __filename: false
+  },
+
+  output: {
+    filename: 'renderer.dev.js',
+    publicPath: `http://localhost:${port}/dist/`
+  },
+
   plugins: [
     requiredByDLLConfig
       ? null
@@ -232,42 +269,5 @@ export default merge.smart(baseConfig, {
     })
   ],
 
-  node: {
-    __dirname: false,
-    __filename: false
-  },
-
-  devServer: {
-    port,
-    publicPath,
-    compress: true,
-    noInfo: false,
-    stats: 'errors-only',
-    inline: true,
-    lazy: false,
-    hot: true,
-    headers: { 'Access-Control-Allow-Origin': '*' },
-    contentBase: path.join(__dirname, 'dist'),
-    watchOptions: {
-      aggregateTimeout: 300,
-      ignored: /node_modules/,
-      poll: 100
-    },
-    historyApiFallback: {
-      verbose: true,
-      disableDotRule: false
-    },
-    before() {
-      if (process.env.START_HOT) {
-        console.log('Starting Main Process...');
-        spawn('npm', ['run', 'start-main-dev'], {
-          shell: true,
-          env: process.env,
-          stdio: 'inherit'
-        })
-          .on('close', code => process.exit(code))
-          .on('error', spawnError => console.error(spawnError));
-      }
-    }
-  }
+  target: 'electron-renderer'
 });

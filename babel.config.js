@@ -18,17 +18,6 @@ module.exports = api => {
   const development = api.env(developmentEnvironments);
 
   return {
-    presets: [
-      [
-        require('@babel/preset-env'),
-        {
-          targets: { electron: require('electron/package.json').version },
-          corejs: '2',
-          useBuiltIns: 'usage'
-        }
-      ],
-      [require('@babel/preset-react'), { development }]
-    ],
     plugins: [
       // Stage 0
       require('@babel/plugin-proposal-function-bind'),
@@ -61,6 +50,17 @@ module.exports = api => {
       require('@babel/plugin-proposal-json-strings'),
 
       ...(development ? developmentPlugins : productionPlugins)
+    ],
+    presets: [
+      [
+        require('@babel/preset-env'),
+        {
+          corejs: '2',
+          targets: { electron: require('electron/package.json').version },
+          useBuiltIns: 'usage'
+        }
+      ],
+      [require('@babel/preset-react'), { development }]
     ]
   };
 };

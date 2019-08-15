@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
+import { Provider } from 'react-redux';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import Routes from '../Routes';
 
 export default class Root extends Component {
   static propTypes = {
-    store: PropTypes.shape({}).isRequired,
     history: PropTypes.shape({
       push: PropTypes.func.isRequired
-    }).isRequired
+    }).isRequired,
+    store: PropTypes.shape({}).isRequired
   };
 
   render() {

@@ -2,13 +2,13 @@
  * Build config for electron renderer process
  */
 
-import path from 'path';
-import webpack from 'webpack';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
-import merge from 'webpack-merge';
 import TerserPlugin from 'terser-webpack-plugin';
+import merge from 'webpack-merge';
+import path from 'path';
+import webpack from 'webpack';
 import baseConfig from './webpack.config.base';
 import CheckNodeEnv from '../internals/scripts/CheckNodeEnv';
 
@@ -16,17 +16,9 @@ CheckNodeEnv('production');
 export default merge.smart(baseConfig, {
   devtool: 'source-map',
 
-  mode: 'production',
-
-  target: 'electron-renderer',
-
   entry: path.join(__dirname, '..', 'app/index'),
 
-  output: {
-    path: path.join(__dirname, '..', 'app/dist'),
-    publicPath: './dist/',
-    filename: 'renderer.prod.js'
-  },
+  mode: 'production',
 
   module: {
     rules: [
@@ -58,8 +50,8 @@ export default merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
               localIdentName: '[name]__[local]__[hash:base64:5]',
+              modules: true,
               sourceMap: true
             }
           }
@@ -75,8 +67,8 @@ export default merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
-              importLoaders: 1
+              importLoaders: 1,
+              sourceMap: true
             }
           },
           {
@@ -97,9 +89,9 @@ export default merge.smart(baseConfig, {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
               importLoaders: 1,
               localIdentName: '[name]__[local]__[hash:base64:5]',
+              modules: true,
               sourceMap: true
             }
           },
@@ -173,19 +165,25 @@ export default merge.smart(baseConfig, {
       ? []
       : [
           new TerserPlugin({
+            cache: true,
             parallel: true,
-            sourceMap: true,
-            cache: true
+            sourceMap: true
           }),
           new OptimizeCSSAssetsPlugin({
             cssProcessorOptions: {
               map: {
-                inline: false,
-                annotation: true
+                annotation: true,
+                inline: false
               }
             }
           })
         ]
+  },
+
+  output: {
+    filename: 'renderer.prod.js',
+    path: path.join(__dirname, '..', 'app/dist'),
+    publicPath: './dist/'
   },
 
   plugins: [
@@ -211,5 +209,7 @@ export default merge.smart(baseConfig, {
         process.env.OPEN_ANALYZER === 'true' ? 'server' : 'disabled',
       openAnalyzer: process.env.OPEN_ANALYZER === 'true'
     })
-  ]
+  ],
+
+  target: 'electron-renderer'
 });

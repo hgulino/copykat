@@ -1,126 +1,77 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from '@material-ui/core';
 
 const theme = createMuiTheme({
-  typography: {
-    useNextVariants: true,
-    h1: {
-      fontSize: 28,
-      fontWeight: 500,
-      color: '#fff',
-      userSelect: 'none'
-    },
-    h5: {
-      // textAlign: 'center',
-      fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif"',
-      fontWeight: 400,
-      fontSize: 24,
-      lineHeight: 1.33,
-      letterSpacing: '0em',
-      userSelect: 'none'
-    },
-    subtitle1: {
-      fontSize: 14,
-      color: '#CBCBCB',
-      userSelect: 'none'
-    },
-    subtitle2: {
-      fontSize: 14,
-      fontWeight: 400,
-      color: '#fff',
-      userSelect: 'none'
-    },
-    body1: {
-      color: '#CBCBCB',
-      userSelect: 'none'
-    },
-    body2: {
-      color: '#CBCBCB',
-      fontSize: 12,
-      userSelect: 'none'
+  mixins: {
+    // ...theme.mixins,
+    toolbar: {
+      minHeight: 48
     }
-  },
-  palette: {
-    primary: {
-      light: '#63ccff',
-      main: '#16BEFD',
-      dark: '#CBCBCB'
-    },
-    secondary: {
-      main: '#5BC85B'
-    },
-    action: {
-      green: { light: '#90fc8a', main: '#5BC85B', dark: '#1e962d' },
-      blue: { light: '#6c8eff', main: '#1A61EF', dark: '#0038bb' }
-    },
-    success: {
-      main: '#5BC85B'
-    },
-    error: {
-      main: '#F66262'
-    },
-    background: {
-      paper: '#525252'
-    },
-    text: {
-      primary: '#FFFFFF',
-      secondary: '#CBCBCB'
-    }
-  },
-  shape: {
-    borderRadius: 8
   },
   overrides: {
+    MuiAvatar: {
+      root: {
+        height: 32,
+        width: 32
+      }
+    },
+    MuiButton: {
+      contained: {
+        '&:active': {
+          boxShadow: 'none'
+        }
+      },
+      label: {
+        textTransform: 'initial'
+      }
+    },
+    MuiDivider: {
+      root: {
+        backgroundColor: '#404854'
+      }
+    },
     MuiDrawer: {
       paper: {
         backgroundColor: '#18202c'
       }
     },
-    MuiButton: {
-      label: {
-        textTransform: 'initial'
-      },
-      contained: {
-        // boxShadow: 'none',
-        '&:active': {
-          // boxShadow: 'none',
-        }
+    MuiIconButton: {
+      root: {
+        // padding: theme.spacing(1)
       }
     },
-    MuiTabs: {
+    MuiListItemIcon: {
       root: {
-        // marginLeft: theme.spacing(1)
-      },
-      indicator: {
-        height: 3,
-        borderTopLeftRadius: 3,
-        borderTopRightRadius: 3
-        // backgroundColor: theme.palette.common.blue
+        '& svg': {
+          fontSize: 20
+        },
+        color: 'inherit',
+        marginRight: 0
       }
     },
     MuiOutlinedInput: {
       root: {
-        borderWidth: 1,
-        position: 'relative',
         '& $notchedOutline': {
           borderColor: '#707070'
         },
-        '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-          borderColor: '#777777',
-          '@media (hover: none)': {
-            borderColor: '#707070'
-          }
-        },
         '&$focused $notchedOutline': {
           borderColor: '#707070'
-        }
+        },
+        '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
+          '@media (hover: none)': {
+            borderColor: '#707070'
+          },
+          borderColor: '#777777'
+        },
+        borderWidth: 1,
+        position: 'relative'
       }
     },
     MuiTab: {
       root: {
         fontWeight: 400,
-        textTransform: 'initial',
         margin: '0 16px',
-        minWidth: 0
+        minWidth: 0,
+        textTransform: 'initial'
         // [theme.breakpoints.up('md')]: {
         //   minWidth: 0
         // }
@@ -132,40 +83,53 @@ const theme = createMuiTheme({
       //   }
       // }
     },
-    MuiIconButton: {
+    // MuiListItemText: {
+    //   primary: {
+    //     fontWeight: theme.typography.fontWeightMedium
+    //   }
+    // },
+    MuiTabs: {
+      indicator: {
+        borderTopLeftRadius: 3,
+        borderTopRightRadius: 3,
+        height: 3
+        // backgroundColor: theme.palette.common.blue
+      },
       root: {
-        // padding: theme.spacing(1)
+        // marginLeft: theme.spacing(1)
       }
     },
     MuiTooltip: {
       tooltip: {
         borderRadius: 4
       }
+    }
+  },
+  palette: {
+    action: {
+      blue: { dark: '#0038bb', light: '#6c8eff', main: '#1A61EF' },
+      green: { dark: '#1e962d', light: '#90fc8a', main: '#5BC85B' }
     },
-    MuiDivider: {
-      root: {
-        backgroundColor: '#404854'
-      }
+    background: {
+      paper: '#525252'
     },
-    // MuiListItemText: {
-    //   primary: {
-    //     fontWeight: theme.typography.fontWeightMedium
-    //   }
-    // },
-    MuiListItemIcon: {
-      root: {
-        color: 'inherit',
-        marginRight: 0,
-        '& svg': {
-          fontSize: 20
-        }
-      }
+    error: {
+      main: '#F66262'
     },
-    MuiAvatar: {
-      root: {
-        width: 32,
-        height: 32
-      }
+    primary: {
+      dark: '#CBCBCB',
+      light: '#63ccff',
+      main: '#16BEFD'
+    },
+    secondary: {
+      main: '#5BC85B'
+    },
+    success: {
+      main: '#5BC85B'
+    },
+    text: {
+      primary: '#FFFFFF',
+      secondary: '#CBCBCB'
     }
   },
   props: {
@@ -173,11 +137,46 @@ const theme = createMuiTheme({
       disableRipple: true
     }
   },
-  mixins: {
-    // ...theme.mixins,
-    toolbar: {
-      minHeight: 48
-    }
+  shape: {
+    borderRadius: 8
+  },
+  typography: {
+    body1: {
+      color: '#CBCBCB',
+      userSelect: 'none'
+    },
+    body2: {
+      color: '#CBCBCB',
+      fontSize: 12,
+      userSelect: 'none'
+    },
+    h1: {
+      color: '#fff',
+      fontSize: 28,
+      fontWeight: 500,
+      userSelect: 'none'
+    },
+    h5: {
+      // textAlign: 'center',
+      fontFamily: 'Roboto", "Helvetica", "Arial", sans-serif"',
+      fontSize: 24,
+      fontWeight: 400,
+      letterSpacing: '0em',
+      lineHeight: 1.33,
+      userSelect: 'none'
+    },
+    subtitle1: {
+      color: '#CBCBCB',
+      fontSize: 14,
+      userSelect: 'none'
+    },
+    subtitle2: {
+      color: '#fff',
+      fontSize: 14,
+      fontWeight: 400,
+      userSelect: 'none'
+    },
+    useNextVariants: true
   }
 });
 

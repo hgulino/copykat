@@ -10,7 +10,7 @@
  *
  *
  */
-import { app, BrowserWindow } from 'electron';
+import { BrowserWindow, app } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
@@ -68,9 +68,9 @@ app.on('ready', async () => {
   }
 
   mainWindow = new BrowserWindow({
+    height: 728,
     show: false,
-    width: 1024,
-    height: 728
+    width: 1024
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);

@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
-import { storiesOf } from '@storybook/react';
 import { muiTheme } from 'storybook-addon-material-ui';
+import { storiesOf } from '@storybook/react';
 import AddIcon from '@material-ui/icons/Add';
 import LinkIcon from '@material-ui/icons/Link';
+import React, { Fragment } from 'react';
 import ActionButton from './index';
 import theme from '../../theme';
 
@@ -20,10 +20,10 @@ storiesOf('ActionButton', module)
   ))
   .add('icons', () => (
     <Fragment>
-      <ActionButton color="primary" iconRight={<AddIcon />} {...defaultProps} />
+      <ActionButton color="primary" iconLeft={<AddIcon />} {...defaultProps} />
       <ActionButton
         color="secondary"
-        iconLeft={<LinkIcon />}
+        iconRight={<LinkIcon />}
         {...defaultProps}
       />
     </Fragment>

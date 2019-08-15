@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import styles from './Counter.css';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import routes from '../constants/routes';
+import styles from './Counter.css';
 
 export default class Counter extends Component {
   static propTypes = {
-    increment: PropTypes.func.isRequired,
-    incrementIfOdd: PropTypes.func.isRequired,
-    incrementAsync: PropTypes.func.isRequired,
+    counter: PropTypes.number.isRequired,
     decrement: PropTypes.func.isRequired,
-    counter: PropTypes.number.isRequired
+    increment: PropTypes.func.isRequired,
+    incrementAsync: PropTypes.func.isRequired,
+    incrementIfOdd: PropTypes.func.isRequired
   };
 
   render() {

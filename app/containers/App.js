@@ -1,8 +1,7 @@
-import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import React, { Component } from 'react';
 
+import { MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import theme from '../theme';
 
 export default class App extends Component {
