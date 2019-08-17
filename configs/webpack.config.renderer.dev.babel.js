@@ -92,7 +92,27 @@ export default merge.smart(baseConfig, {
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
+            cacheDirectory: true,
+            plugins: [
+              [
+                'babel-plugin-import',
+                {
+                  libraryName: '@material-ui/core',
+                  libraryDirectory: 'esm', // or '' if your bundler does not support ES modules
+                  camel2DashComponentName: false
+                },
+                'core'
+              ],
+              [
+                'babel-plugin-import',
+                {
+                  libraryName: '@material-ui/icons',
+                  libraryDirectory: 'esm', // or '' if your bundler does not support ES modules
+                  camel2DashComponentName: false
+                },
+                'icons'
+              ]
+            ]
           }
         }
       },
