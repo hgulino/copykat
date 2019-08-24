@@ -18,6 +18,10 @@ const theme = createMuiTheme({
       contained: {
         '&:active': {
           boxShadow: 'none'
+        },
+        '&:disabled': {
+          backgroundColor: 'rgba(255, 255, 255, 0.3)',
+          color: 'rgba(0, 0, 0, 0.4)'
         }
       },
       label: {
@@ -66,6 +70,11 @@ const theme = createMuiTheme({
         position: 'relative'
       }
     },
+    MuiSkeleton: {
+      root: {
+        backgroundColor: 'rgba(255, 255, 255, 0.1)'
+      }
+    },
     MuiTab: {
       root: {
         fontWeight: 400,
@@ -101,7 +110,11 @@ const theme = createMuiTheme({
     },
     MuiTooltip: {
       tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
         borderRadius: 4
+      },
+      tooltipPlacementBottom: {
+        margin: '3px 0px 0px 0px !important'
       }
     }
   },

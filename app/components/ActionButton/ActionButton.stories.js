@@ -1,17 +1,14 @@
-import { muiTheme } from 'storybook-addon-material-ui';
 import { storiesOf } from '@storybook/react';
 import AddIcon from '@material-ui/icons/Add';
 import LinkIcon from '@material-ui/icons/Link';
 import React, { Fragment } from 'react';
 import ActionButton from './index';
-import theme from '../../theme';
 
 const defaultProps = {
   title: 'New Template'
 };
 
 storiesOf('ActionButton', module)
-  .addDecorator(muiTheme([theme]))
   .add('color', () => (
     <Fragment>
       <ActionButton color="primary" {...defaultProps} />

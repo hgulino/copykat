@@ -97,18 +97,18 @@ export default merge.smart(baseConfig, {
               [
                 'babel-plugin-import',
                 {
-                  libraryName: '@material-ui/core',
+                  camel2DashComponentName: false,
                   libraryDirectory: 'esm', // or '' if your bundler does not support ES modules
-                  camel2DashComponentName: false
+                  libraryName: '@material-ui/core'
                 },
                 'core'
               ],
               [
                 'babel-plugin-import',
                 {
-                  libraryName: '@material-ui/icons',
+                  camel2DashComponentName: false,
                   libraryDirectory: 'esm', // or '' if your bundler does not support ES modules
-                  camel2DashComponentName: false
+                  libraryName: '@material-ui/icons'
                 },
                 'icons'
               ]
