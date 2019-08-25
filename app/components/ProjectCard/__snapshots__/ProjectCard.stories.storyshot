@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ProjectCard archived 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ProjectCard default 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ProjectCard finished 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ProjectCard loading 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ProjectCard overflow 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ProjectCard preview 1`] = `ReactWrapper {}`;

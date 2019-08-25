@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Storyshots ActionButton color 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ActionButton disabled 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ActionButton icons 1`] = `ReactWrapper {}`;
+
+exports[`Storyshots ActionButton loading 1`] = `ReactWrapper {}`;

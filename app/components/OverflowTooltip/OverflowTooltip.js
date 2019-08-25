@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Tooltip, Typography } from '@material-ui/core';
@@ -110,13 +110,16 @@ export default function OverflowTooltip(props) {
     typeClassName,
     variant,
     noWrap,
-    style,
-    overflowCount
+    style
   } = props;
   const [allowTooltip, setAllowTooltip] = useState(false);
+  const divRef = useRef(null);
 
   useEffect(() => {
-    if (!allowTooltip && title.length + 1 > overflowCount) {
+    if (
+      !allowTooltip &&
+      divRef.current.scrollWidth > divRef.current.offsetWidth
+    ) {
       setAllowTooltip(true);
     }
   }, []);
@@ -125,6 +128,7 @@ export default function OverflowTooltip(props) {
     return (
       <ArrowTooltip title={title} placement={placement}>
         <Typography
+          ref={divRef}
           className={typeClassName}
           variant={variant}
           noWrap={noWrap}
@@ -137,6 +141,7 @@ export default function OverflowTooltip(props) {
   }
   return (
     <Typography
+      ref={divRef}
       className={typeClassName}
       variant={variant}
       noWrap={noWrap}
@@ -150,7 +155,6 @@ export default function OverflowTooltip(props) {
 OverflowTooltip.propTypes = {
   children: PropTypes.node,
   noWrap: PropTypes.bool,
-  overflowCount: PropTypes.number,
   placement: PropTypes.string,
   style: PropTypes.object,
   title: PropTypes.string,
@@ -161,7 +165,6 @@ OverflowTooltip.propTypes = {
 OverflowTooltip.defaultProps = {
   children: null,
   noWrap: false,
-  overflowCount: 20,
   placement: null,
   style: null,
   title: 'New template',

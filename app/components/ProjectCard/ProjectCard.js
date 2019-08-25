@@ -177,7 +177,6 @@ export default function ProjectCard(props) {
                   <OverflowTooltip
                     variant="h6"
                     noWrap
-                    overflowCount={13}
                     style={{
                       width: '175px'
                     }}
@@ -197,7 +196,6 @@ export default function ProjectCard(props) {
                 ) : (
                   <OverflowTooltip
                     title={projectPath}
-                    overflowCount={40}
                     variant="body2"
                     noWrap
                     placement="bottom-start"
