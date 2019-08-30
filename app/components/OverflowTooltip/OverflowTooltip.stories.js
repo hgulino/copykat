@@ -1,13 +1,21 @@
 import { storiesOf } from '@storybook/react';
-import React, { Fragment } from 'react';
+import React from 'react';
 import OverflowTooltip from './index';
 
 const defaultProps = {
-  title: 'New Template'
+  placement: 'bottom',
+  title: 'Testing overflow'
 };
 
 storiesOf('OverflowTooltip', module).add('example', () => (
-  <Fragment>
-    <OverflowTooltip {...defaultProps} />
-  </Fragment>
+  <OverflowTooltip
+    {...defaultProps}
+    variant="h6"
+    noWrap
+    style={{
+      width: '100px'
+    }}
+  >
+    Testing overflow
+  </OverflowTooltip>
 ));

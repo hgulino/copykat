@@ -188,7 +188,10 @@ export default function ProjectCard(props) {
                 )}
               </Grid>
               <Grid item>
-                <ProjectChip label={status} loading={loading} />
+                <ProjectChip
+                  label={preview ? 'preview' : status}
+                  loading={loading}
+                />
               </Grid>
               <Grid item xs={12}>
                 {loading ? (

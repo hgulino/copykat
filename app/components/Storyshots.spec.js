@@ -8,8 +8,8 @@ import Enzyme, { mount } from 'enzyme';
 Enzyme.configure({ adapter: new Adapter() });
 
 initStoryshots({
+  snapshotSerializers: [createSerializer()],
   test: multiSnapshotWithOptions({
-    renderer: mount,
-    snapshotSerializers: [createSerializer()]
+    renderer: mount
   })
 });
