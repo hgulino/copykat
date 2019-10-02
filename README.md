@@ -1,78 +1,84 @@
-# electron-react-redux-boilerplate
-[![Build Status](https://api.travis-ci.org/jschr/electron-react-redux-boilerplate.svg)](https://travis-ci.org/jschr/electron-react-redux-boilerplate)
-[![dependencies Status](https://david-dm.org/jschr/electron-react-redux-boilerplate/status.svg)](https://david-dm.org/jschr/electron-react-redux-boilerplate)
-[![devDependencies Status](https://david-dm.org/jschr/electron-react-redux-boilerplate/dev-status.svg)](https://david-dm.org/jschr/electron-react-redux-boilerplate?type=dev)
+# CopyKat
 
-A minimal boilerplate to get started with [Electron](http://electron.atom.io/), [React](https://facebook.github.io/react/) and [Redux](http://redux.js.org/).
+<p align="center">
+  <img src="internals/img/copykat-banner.png" width="100%"/>
+</p>
 
-Including:
+A project's file structure can be difficult to maintain. Especially when everything always ends up clumped together and permanetly saved to the Desktop and Downloads folder.
 
-* [React Router](https://reacttraining.com/react-router/)
-* [Redux Thunk](https://github.com/gaearon/redux-thunk/)
-* [Redux Actions](https://github.com/acdlite/redux-actions/)
-* [Redux Local Storage](https://github.com/elgerlambert/redux-localstorage/)
-* [Electron Packager](https://github.com/electron-userland/electron-packager)
-* [Electron DevTools Installer](https://github.com/MarshallOfSound/electron-devtools-installer)
-* [Electron Mocha](https://github.com/jprichardson/electron-mocha)
-* [Browsersync](https://browsersync.io/)
+`CopyKat` is a localized project management system, kaban board, and timesheet built on [Electron](https://github.com/electron/electron) that helps freelancers organize their desktop and streamline mundane tasks.
 
-## Quick start
+<!-- **👩🏻‍💻 Developer Ready**: A comprehensive JavaScript testing solution. Works out of the box for most JavaScript projects.
 
-Clone the repository
+**🏃🏽 Instant Feedback**: Fast, interactive watch mode only runs test files related to changed files.
+
+**📸 Snapshot Testing**: Capture snapshots of large objects to simplify testing and to analyze how they change over time. -->
+
+<hr />
+<br>
+
+<div align="center">
+  <!-- Example .gif file here -->
+  <img src="internals/img/cat-sleeping.gif" width="400"/>
+</div>
+
+## Features
+
+### Project list
+
+Since we're primarily dealing with local files, it's important to understand that `Projects` are just regular system folders. `Projects` are organized at a top level grid list which can be sorted by `name`, `status`, or even `client`. One major difference between `Projects` and system folders is that they contain files and folders (or references to them)
+
+### Project templates
+
+`Projects` can be copied into `Templates` which allow users to customize a structure that fits a particular workflow. `Templates` that help generate common folder structures and can copy files and name them according to the `Project` name.
+
+### Copy template files
+
+Simply define what files a particular `Template`
+
+<!-- ## Install
+
+- **If you have installation or compilation issues with this project, please see [erb debugging guide](https://github.com/electron-react-boilerplate/electron-react-boilerplate/issues/400)**
+
+First, clone the repo via git:
+
 ```bash
-git clone --depth=1 git@github.com:jschr/electron-react-redux-boilerplate.git
+git clone --branch master https://github.com/hgulino/copykat.git
 ```
 
-Install dependencies
+And then install the dependencies with yarn.
+
 ```bash
-cd electron-react-redux-boilerplate
-npm install
+$ cd your-project-name
+$ yarn
 ```
 
-Development
+## Starting Development
+
+Start the app in the `dev` environment. This starts the renderer process in [**hot-module-replacement**](https://webpack.js.org/guides/hmr-react/) mode and starts a webpack dev server that sends hot updates to the renderer process:
+
 ```bash
-npm run develop
-```
+$ yarn dev
+``` -->
 
-## DevTools
+<!-- ## Docs
 
-Toggle DevTools:
+See our [docs and guides here](https://electron-react-boilerplate.js.org/docs/installation) -->
 
-* OSX: <kbd>Cmd</kbd> <kbd>Alt</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
-* Linux: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
-* Windows: <kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>I</kbd> or <kbd>F12</kbd>
+## Contributions
 
-## Packaging
+Contributions via [issues](https://github.com/hgulino/copykat/issues/new) or [pull requests](https://github.com/hgulino/copykat/compare) are hugely welcome!
 
-Modify [electron-builder.yml](./electron-builder.yml) to edit package info.
+Don't forget to leave a ⭐️ if you enjoyed using this _**pet**_ project! 😺
 
-For a full list of options see: https://github.com/electron-userland/electron-builder/wiki/Options.
+## Contributors
 
-Create a package for OSX, Windows and Linux
-```
-npm run pack
-```
+- [Hunter Gulino](https://github.com/hgulino)
 
-Or target a specific platform
-```
-npm run pack:mac
-npm run pack:win
-npm run pack:linux
-```
+<p>
+  Special thanks to the maintainers of <a href="https://github.com/electron-react-boilerplate/electron-react-boilerplate">Electron React Boilerplate</a> for giving this project a running start.
+</p>
 
-## Tests
+## License
 
-```
-npm run test
-```
-
-## Maintainers
-
-- [@jschr](https://github.com/jschr)
-- [@pronebird](https://github.com/pronebird)
-
-## Apps using this boilerplate
-
-- [Mullvad VPN app](https://github.com/mullvad/mullvadvpn-app)
-- [YouTube Downloader Electron](https://github.com/vanzylv/youtube-downloader-electron)
-- [Martian: A Websocket test tool](https://github.com/drex44/martian)
+[GNU GPLv3](LICENSE) © [Hunter Gulino](https://github.com/hgulino)
