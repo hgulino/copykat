@@ -6,6 +6,10 @@ import Skeleton from '@material-ui/lab/Skeleton';
 
 const useStyles = makeStyles(theme =>
   createStyles({
+    active: {
+      backgroundColor: '#2A97FF',
+      color: theme.palette.text.primary
+    },
     archived: {
       backgroundColor: '#CBCBCB',
       color: '#383838'
@@ -21,8 +25,12 @@ const useStyles = makeStyles(theme =>
     loading: {
       borderRadius: 80
     },
-    pending: {
-      backgroundColor: theme.palette.success.main,
+    preview: {
+      background: `repeating-linear-gradient(-45deg, ${
+        theme.palette.action.blue.main
+      }, ${theme.palette.action.blue.main} 10px, ${
+        theme.palette.action.blue.light
+      } 10px, ${theme.palette.action.blue.light} 20px)`,
       color: theme.palette.text.primary
     }
   })
@@ -35,13 +43,15 @@ export default function ProjectChip(props) {
   const renderChip = () => {
     switch (label) {
       case 'active':
-        return <Chip label="Active" className={classes.pending} />;
+        return <Chip label="Active" className={classes.active} />;
       case 'due':
         return <Chip label="Due soon!" className={classes.due} />;
       case 'completed':
         return <Chip label="Complete" className={classes.completed} />;
       case 'archived':
         return <Chip label="Archived" className={classes.archived} />;
+      case 'preview':
+        return <Chip label="Preview" className={classes.preview} />;
       default:
         return <div />;
     }
@@ -57,7 +67,7 @@ export default function ProjectChip(props) {
           classes={{ root: classes.loading }}
         />
       ) : (
-        <div>{renderChip(label)}</div>
+        <>{renderChip(label)}</>
       )}
     </>
   );

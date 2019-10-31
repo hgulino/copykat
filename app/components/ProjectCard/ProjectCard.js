@@ -177,7 +177,6 @@ export default function ProjectCard(props) {
                   <OverflowTooltip
                     variant="h6"
                     noWrap
-                    overflowCount={13}
                     style={{
                       width: '175px'
                     }}
@@ -189,7 +188,10 @@ export default function ProjectCard(props) {
                 )}
               </Grid>
               <Grid item>
-                <ProjectChip label={status} loading={loading} />
+                <ProjectChip
+                  label={preview ? 'preview' : status}
+                  loading={loading}
+                />
               </Grid>
               <Grid item xs={12}>
                 {loading ? (
@@ -197,7 +199,6 @@ export default function ProjectCard(props) {
                 ) : (
                   <OverflowTooltip
                     title={projectPath}
-                    overflowCount={40}
                     variant="body2"
                     noWrap
                     placement="bottom-start"
